@@ -13,6 +13,7 @@
 
     <modules>
         <module>SpringFramework</module>
+        <module>Subcontainer</module>
     </modules>
 
 </project>

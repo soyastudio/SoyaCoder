@@ -5,15 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.soya.coder</groupId>
-    <artifactId>EnterpriseIntegration</artifactId>
+    <artifactId>ApacheKafka</artifactId>
     <packaging>pom</packaging>
-    <name>EnterpriseIntegration</name>
+    <name>ApacheKafka</name>
     <version>1.0-SNAPSHOT</version>
     <url>https://github.com/</url>
 
     <modules>
-        <module>ApacheCamel</module>
-        <module>ApacheKafka</module>
+        <module>KafkaSpringBoot</module>
     </modules>
 
 </project>

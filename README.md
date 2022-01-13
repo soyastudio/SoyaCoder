@@ -14,8 +14,6 @@
 
 
 
-
-
 ## Commons and Utilities
 
 ### Apache Commons
@@ -30,6 +28,12 @@
 
 ### NIO and Netty
 
+### Apache POI
+
+### Markdown
+
+
+
 ## Design Patterns, Principles and Best Practices
 
 ### GoF Design Patterns
@@ -42,7 +46,7 @@
 
 ### Exceptions and Logging
 
-
+### Test Driven Development and Behavior Driven Development
 
 
 

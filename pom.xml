@@ -12,6 +12,7 @@
     <modules>
         <module>SpringBoot</module>
         <module>EnterpriseIntegration</module>
+        <module>Application</module>
     </modules>
 
 </project>

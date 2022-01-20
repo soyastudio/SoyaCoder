@@ -6,24 +6,17 @@
 ## Overview
 
 ```pptx[What is Apache Avro]
-    - Apache Avro™ is a data serialization system (Not for data modelling)
+    - Apache Avro™ is a data serialization system. That means it is for data transfer purpose instead of data modelling.
+    - Avro require schema to serialize and deserialize data.
     - Avro provides:
         -- Rich data structures.
         -- A compact, fast, binary data format.
         -- A container file, to store persistent data.
         -- Remote procedure call (RPC).
         -- Simple integration with dynamic languages.
-    - Avro require schema to do serialize and deserialize
 ```
 
 ## Comparison between Avro and Other Data formats
-
-```pptx[Comparison between Avro and Other Data formats]
-    - XML
-    - Json
-    - Thrift, Protocol Buffers
-```
-
 
 ### Avro vs XML
 
@@ -49,24 +42,16 @@
 
 ### Avro vs Thrift vs Protocol Buffers
 
-```pptx[Avro vs Thrift vs Protocol Buffers] 
-    - TODO:
-    
-```
 
 ## Avro Schema
 
 ```pptx[Avro Schema]
+    - Avro schema is in json format, usually with extension ".avsc"
     - Naming Convention: must match the regular expression [A-Za-z_][A-Za-z0-9_]* 
-    - Primitive Types
-    - Complex Types
-        -- Records
-        -- Arrays
-        -- Unions
-        -- Enums
-        -- Maps
-        -- Fixed
-    - Logical Types
+    - Avro Data Type:
+        -- Primitive Types: null, boolean, int, long, float, double, bytes, string
+        -- Complex Types: record, array, union, enum, maps, fixed
+        -- Logical Types: a logical type is an Avro primitive or complex type with extra attributes to represent a derived type. 
 ```
 
 ### Primitive Types
@@ -86,18 +71,53 @@
 ### Record Type
 
 ```pptx[Record Type]
-    - name.
+    - records use the type name "record", and have following attributes:
+    - name: required
     - namespace: optional.
     - doc: optional. Description about the schema.
     - aliases: a JSON array of strings (optional).
-    - fields: a JSON array of JSON Object, each has following attributes:
-        -- name. 
-        -- type: a schema, as defined above
+    - fields: an array of JSON Object, each has attributes:
+        -- name: required 
+        -- type: required. A schema, as defined above
         -- doc: optional.
         -- default: optional.
         -- order: optional. Related to sorting order.
         -- aliases: optional.
 
+```
+
+#### Record Schema Example
+
+```
+{
+  "type": "record",
+  "name": "AddressType",
+  "fields": [
+    {
+      "name": "line_1",
+      "type": "string"
+    },
+    {
+      "name": "line_2",
+      "type": [
+        null,
+        "string"
+      ]
+    },
+    {
+      "name": "city",
+      "type": "string"
+    },
+    {
+      "name": "country",
+      "type": "string"
+    },
+    {
+      "name": "zipCode",
+      "type": "string"
+    }
+  ]
+}
 ```
 
 ### Array Type
@@ -108,6 +128,15 @@
 
 ```
 
+#### Array Schema Example
+```
+{
+  "type": "array",
+  "items" : "string",
+  "default": []
+}
+```
+
 ### Union Type
 
 ```pptx[Union Type]
@@ -115,6 +144,29 @@
     - A default value is specified for a record field whose type is a union, the type of the default value must match the first element of the union.
     - Unions may not contain more than one schema with the same type, except for the named types record, fixed and enum. 
     - Unions may not immediately contain other unions.
+
+```
+
+#### Union Schema Example
+
+```
+[
+  null,
+  {
+    "type": "record",
+    "name": "DocumentActionType",
+    "fields": [
+      {
+        "name": "ActionTypeCd",
+        "type": "string"
+      },
+      {
+        "name": "RecordTypeCd",
+        "type": "string"
+      }
+    ]
+  }
+]
 
 ```
 
@@ -131,5 +183,111 @@
         -- doc: optional.
 ```
 
-## Comparison of XML Schema, Avro Schema and Json Types
+#### Enums Schema Example
 
+```
+{
+  "type": "enum",
+  "name": "DayOfWeek",
+  "symbols": [
+    "SUNDAY",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY"
+  ]
+}
+
+```
+
+## Type Mapping from XML Schema to Avro Schema
+
+```pptx[Mapping XSD Type to Avro Schema]
+    - Basic Types Mappings 
+    - Cardinality
+```
+
+### Basic Types Mappings
+
+<!-- table: Basic Types Mappings -->
+
+| XSD Type              | Avro Type          | Json Type          |
+| ------------------    | ------------------ | ------------------ |
+| complex	            | record             | json object        |
+| xs:boolean	        | boolean            | json boolean       |
+| xs:float	            | float              | json number	      |
+| xs:double	            | double             | json number	      |
+| xs:integer	        | int                | json number	      |
+| xs:long	            | long               | json number	      |
+| xs:int	            | int                | json number	      |
+| xs:short	            | int                | json number	      |
+| xs:byte	            | int                | json number	      |
+| xs:decimal	        | double             | json number	      |
+| xs:string	            | string	         | json string        |
+| xs:dateTime	        | string	         | json string        |
+| xs:time	            | string	         | json string        |
+| xs:date	            | string	         | json string        |
+| xs:duration	        | string	         | json string        |
+| xs:anyURI	            | string	         | json string        |
+| xs:QName	            | string	         | json string        |
+
+<!-- ##### -->
+
+### More String Based Types
+
+<!-- table: More String Based Types Mappings -->
+
+| XSD Type              | Avro Type          | Json Type          |
+| ------------------    | ------------------ | ------------------ |
+| xs:base64Binary	    | string	         | json string        |
+| xs:hexBinary	        | string	         | json string        |
+| xs:token	            | string	         | json string        |
+| xs:language	        | string	         | json string        |
+| xs:gYearMonth	        | string	         | json string        |
+| xs:gYear	            | string	         | json string        |
+| xs:gMonthDay	        | string	         | json string        |
+| xs:gDay	            | string	         | json string        |
+| xs:gMonth	            | string	         | json string        |
+| xs:NOTATION	        | string	         | json string        |
+| xs:NCName	            | string	         | json string        |
+| xs:ID	                | string	         | json string        |
+| xs:IDREF	            | string	         | json string        |
+| xs:IDREFS	            | string	         | json string        |
+| xs:ENTITY	            | string	         | json string        |
+| xs:ENTITIES	        | string	         | json string        |
+| xs:NMTOKEN	        | string	         | json string        |
+| xs:NMTOKENS	        | string	         | json string        |
+
+<!-- ##### -->
+
+### More Number-Based Types
+
+<!-- table: More Number-Based Types -->
+
+| XSD Type              | Avro Type          | Json Type          |
+| ------------------    | ------------------ | ------------------ |
+| xs:nonPositiveInteger	| int                | json number	      |
+| xs:NegativeInteger	| int                | json number	      |
+| xs:nonNegativeInteger	| int                | json number	      |
+| xs:positiveInteger	| int                | json number	      |
+| xs:unsignedLong	    | long               | json number	      |
+| xs:unsignedInt	    | int                | json number	      |
+| xs:unsignedShort	    | int                | json number	      |
+| xs:unsignedByte	    | int                | json number	      |
+
+<!-- ##### -->
+
+### Cardinality
+
+<!-- table: Cardinality -->
+
+| Cardinality           | Avro Type          | Description        |
+| ------------------    | ------------------ | ------------------ |
+| 1-1    	            | MappedType         | Above mapping rule |
+| 1-n    	            | array of MappedType|                    |
+| 0-1    	            | Union              | [null, MappedType] |
+| 0-n    	            | Union of array     | [null, array]      |
+
+<!-- ##### -->

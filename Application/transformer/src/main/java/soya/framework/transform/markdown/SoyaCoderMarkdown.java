@@ -1,12 +1,13 @@
 package soya.framework.transform.markdown;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParser;
 import org.apache.commons.compress.utils.IOUtils;
-import org.apache.poi.sl.usermodel.AutoNumberingScheme;
-import org.apache.poi.sl.usermodel.PictureData;
-import org.apache.poi.sl.usermodel.TextParagraph;
+import org.apache.poi.sl.usermodel.*;
 import org.apache.poi.xslf.usermodel.*;
-import org.commonmark.node.*;
 import org.commonmark.node.Image;
+import org.commonmark.node.*;
 import org.commonmark.parser.Parser;
 import org.openxmlformats.schemas.drawingml.x2006.main.CTBlip;
 import org.openxmlformats.schemas.drawingml.x2006.main.CTBlipFillProperties;
@@ -20,6 +21,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class SoyaCoderMarkdown extends AbstractVisitor {
+    public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
+    public static final String EVENT_START_PREFIX = "<!-- pptx:";
+
+    public static final String EVENT_END_TOKEN = "#####";
+
     public static final File home = new File("C:/github/SoyaCoder/website");
 
     //public static final Color FONT_COLOR = new Color(78, 147, 89);
@@ -39,7 +46,9 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
     };
 
 
-    private List<Node> nodes = new ArrayList<>();
+    private List<Buffer> nodes = new ArrayList<>();
+
+    private Buffer buffer;
 
     @Override
     public void visit(BlockQuote blockQuote) {
@@ -69,7 +78,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
     @Override
     public void visit(FencedCodeBlock fencedCodeBlock) {
         super.visit(fencedCodeBlock);
-        nodes.add(fencedCodeBlock);
+        nodes.add(new Buffer(fencedCodeBlock));
     }
 
     @Override
@@ -96,7 +105,27 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
     public void visit(HtmlBlock htmlBlock) {
         super.visit(htmlBlock);
 
-        System.out.println(htmlBlock.getLiteral());
+        String token = htmlBlock.getLiteral();
+        if (token.startsWith("<!--") && token.endsWith("-->")) {
+            token = token.substring(4, token.length() - 3).trim();
+
+            if (token.equals(EVENT_END_TOKEN)) {
+                nodes.add(buffer);
+                buffer = null;
+            } else {
+                buffer = new Buffer();
+                if (token.contains(":")) {
+                    int index = token.indexOf(":");
+                    buffer.type = token.substring(0, index);
+                    buffer.name = token.substring(index + 1);
+                } else {
+                    buffer.name = token;
+                }
+            }
+
+
+        }
+
     }
 
     @Override
@@ -142,6 +171,19 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
     @Override
     public void visit(Text text) {
         super.visit(text);
+
+        if (buffer != null) {
+            buffer.nodes.add(text);
+        }
+
+        String token = text.getLiteral().trim();
+        if (token.startsWith("|") && token.endsWith("|")) {
+            StringTokenizer tokenizer = new StringTokenizer(token, "|");
+            while (tokenizer.hasMoreTokens()) {
+                String t = tokenizer.nextToken().trim();
+                //System.out.println("------------- " + t);
+            }
+        }
     }
 
     @Override
@@ -159,9 +201,24 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         super.visit(customNode);
     }
 
+    static class Buffer {
+        private String type;
+        private String name;
+        private Node node;
+        private List<Node> nodes;
+
+        Buffer() {
+            nodes = new ArrayList<>();
+        }
+
+        Buffer(Node node) {
+            this.node = node;
+        }
+    }
+
     private static String getTitle(FencedCodeBlock block) {
         String token = block.getInfo();
-        if(token.contains("[")) {
+        if (token.contains("[")) {
             token = token.substring(token.lastIndexOf("[") + 1, token.lastIndexOf("]"));
         }
 
@@ -173,15 +230,15 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         StringTokenizer tokenizer = new StringTokenizer(block.getLiteral(), "\n");
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken().trim();
-            if(token.startsWith("- ") || token.startsWith("-- ")) {
-               items.add(token.trim());
+            if (token.startsWith("- ") || token.startsWith("-- ")) {
+                items.add(token.trim());
             }
 
         }
 
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < items.size(); i ++) {
-            if(i > 0) {
+        for (int i = 0; i < items.size(); i++) {
+            if (i > 0) {
                 builder.append("\n");
             }
             builder.append(items.get(i));
@@ -195,7 +252,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         StringTokenizer tokenizer = new StringTokenizer(block.getLiteral(), "\n");
         while (tokenizer.hasMoreTokens()) {
             String token = tokenizer.nextToken().trim();
-            if(token.startsWith("- ") || token.startsWith("-- ")) {
+            if (token.startsWith("- ") || token.startsWith("-- ")) {
                 items.add(token.trim());
             }
 
@@ -221,7 +278,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
 
         setSlide(cover, ppt.getPictureData().get(0));
 
-        XSLFShape pic =  cover.getPlaceholder(1);
+        XSLFShape pic = cover.getPlaceholder(1);
         java.awt.geom.Rectangle2D anchor = pic.getAnchor();
 
         byte[] pictureData = IOUtils.toByteArray(
@@ -258,7 +315,207 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         return cover;
     }
 
+    private static XSLFSlide createEnd(XMLSlideShow ppt) throws IOException {
+
+        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
+        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.BLANK);
+        XSLFSlide cover = ppt.createSlide(layout);
+        setSlide(cover, ppt.getPictureData().get(0));
+
+        byte[] pictureData = IOUtils.toByteArray(
+                new FileInputStream(new File(home, "media/thank-you.png")));
+        XSLFPictureData pd = ppt.addPicture(pictureData, PictureData.PictureType.PNG);
+        XSLFPictureShape picture = cover.createPicture(pd);
+        picture.setAnchor(new Rectangle(180, 100, 360, 240));
+
+        return cover;
+    }
+
+    private static XSLFSlide createDefaultSlide(XMLSlideShow ppt, FencedCodeBlock block) {
+
+        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
+        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT);
+
+        XSLFSlide slide = ppt.createSlide(layout);
+        setSlide(slide, ppt.getPictureData().get(0));
+
+        XSLFTextShape title = slide.getPlaceholder(0);
+        // Clearing text to remove the predefined one in the template
+        title.clearText();
+
+        XSLFTextParagraph p = title.addNewTextParagraph();
+        XSLFTextRun r1 = p.addNewTextRun();
+        r1.setText(getTitle(block));
+        r1.setFontColor(FONT_COLOR);
+        r1.setFontSize(42.);
+
+        //selection of body placeholder
+        XSLFTextShape body = slide.getPlaceholder(1);
+
+        body.setLeftInset(75.);
+        body.setRightInset(50.);
+
+        //clear the existing text in the slide
+        body.clearText();
+
+        List<String> items = getBodyAsList(block);
+        for (String item : items) {
+            if (item.startsWith("- ")) {
+                //adding new paragraph
+                XSLFTextParagraph paragraph = body.addNewTextParagraph();
+                paragraph.setBulletAutoNumber(AutoNumberingScheme.arabicPeriod, 1);
+                XSLFTextRun textRun = paragraph.addNewTextRun();
+                textRun.setFontColor(FONT_COLOR);
+                textRun.setFontSize(22.);
+                textRun.setText(item.substring(2).trim());
+            } else if (item.startsWith("-- ")) {
+                XSLFTextParagraph paragraph = body.addNewTextParagraph();
+                paragraph.setIndentLevel(1);
+                XSLFTextRun textRun = paragraph.addNewTextRun();
+                textRun.setFontColor(FONT_COLOR);
+                textRun.setFontSize(20.);
+                textRun.setText(item.substring(3).trim());
+
+            }
+        }
+
+        return slide;
+    }
+
+    private static XSLFSlide createCode(XMLSlideShow ppt, FencedCodeBlock block) throws IOException {
+        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
+        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.BLANK);
+        XSLFSlide slide = ppt.createSlide(layout);
+        setSlide(slide, ppt.getPictureData().get(0));
+
+        XSLFTextBox textBox = slide.createTextBox();
+
+        textBox.clearText();
+        textBox.setTopInset(30.);
+        textBox.setLeftInset(30.);
+        //textBox.setFillColor(new Color(240, 253, 254));
+        textBox.setFillColor(Color.BLACK);
+
+        XSLFTextParagraph paragraph = textBox.addNewTextParagraph();
+        XSLFTextRun textRun = paragraph.addNewTextRun();
+
+        String json = GSON.toJson(JsonParser.parseString(block.getLiteral()));
+        //textRun.setFontColor(FONT_COLOR);
+        textRun.setFontColor(Color.white);
+        textRun.setFontSize(10.0);
+        textRun.setText(block.getLiteral());
+
+        textBox.setAnchor(new Rectangle(100, 75, 500, 400));
+
+        return slide;
+    }
+
+    private static void createTable(XSLFSlide slide, String name, Table table) {
+        XSLFTextShape title = slide.getPlaceholder(0);
+        // Clearing text to remove the predefined one in the template
+        title.clearText();
+
+        XSLFTextParagraph textParagraph = title.addNewTextParagraph();
+        XSLFTextRun r1 = textParagraph.addNewTextRun();
+        r1.setText(name);
+        r1.setFontColor(FONT_COLOR);
+        r1.setFontSize(42.);
+
+        XSLFTable tbl = slide.createTable();
+        tbl.setAnchor(new Rectangle(120, 100, 750, 300));
+
+        int numColumns = table.header().length;
+        int numRows = table.rows();
+
+        // header
+        XSLFTableRow headerRow = tbl.addRow();
+        headerRow.setHeight(18);
+        for (int i = 0; i < numColumns; i++) {
+            XSLFTableCell th = headerRow.addCell();
+            XSLFTextParagraph p = th.addNewTextParagraph();
+            p.setTextAlign(TextParagraph.TextAlign.CENTER);
+            XSLFTextRun r = p.addNewTextRun();
+            r.setText(table.header()[i]);
+            r.setBold(true);
+            r.setFontColor(Color.white);
+            r.setFontSize(12.);
+            th.setFillColor(new Color(79, 129, 189));
+            th.setBorderWidth(TableCell.BorderEdge.bottom, 2.0);
+            th.setBorderColor(TableCell.BorderEdge.bottom, Color.white);
+            // all columns are equally sized
+            tbl.setColumnWidth(i, 150);
+        }
+
+        // data
+        for (int rownum = 0; rownum < numRows; rownum++) {
+            String[] values = table.row(rownum);
+
+            XSLFTableRow tr = tbl.addRow();
+            tr.setHeight(16);
+
+            int min = Math.min(numColumns, values.length);
+
+            for (int i = 0; i < min; i++) {
+                XSLFTableCell cell = tr.addCell();
+                XSLFTextParagraph p = cell.addNewTextParagraph();
+                XSLFTextRun r = p.addNewTextRun();
+                r.setFontColor(FONT_COLOR);
+                r.setFontSize(10.);
+
+                r.setText(values[i]);
+                if (rownum % 2 == 0) {
+                    cell.setFillColor(new Color(208, 216, 232));
+                } else {
+                    //cell.setFillColor(new Color(233, 247, 244));
+                    cell.setFillColor(new Color(240, 253, 254));
+                }
+            }
+        }
+    }
+
+    private static void createSide(Buffer buffer, XMLSlideShow ppt) {
+
+        if ("TABLE".equalsIgnoreCase(buffer.type)) {
+            Table table = createTable(buffer);
+            XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
+
+            XSLFSlide slide = ppt.createSlide(defaultMaster.getLayout(SlideLayout.TITLE_ONLY));
+            setSlide(slide, ppt.getPictureData().get(0));
+            createTable(slide, buffer.name, createTable(buffer));
+
+        }
+
+    }
+
+    private static Table createTable(Buffer buffer) {
+
+        Text text = (Text) buffer.nodes.get(0);
+        String[] headers = toRow(text.getLiteral().trim());
+
+        Table.Builder builder = Table.builder(headers);
+
+        for (int i = 2; i < buffer.nodes.size(); i++) {
+            Text line = (Text) buffer.nodes.get(i);
+            builder.addRow(toRow(line.getLiteral()));
+        }
+
+        return builder.create();
+    }
+
+    private static String[] toRow(String line) {
+        List<String> list = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(line, "|");
+        while (tokenizer.hasMoreTokens()) {
+            String h = tokenizer.nextToken().trim();
+            list.add(h);
+        }
+
+        return list.toArray(new String[list.size()]);
+
+    }
+
     public static void main(String[] args) throws Exception {
+
         Parser parser = Parser.builder().build();
         //Node document = parser.parseReader(new FileReader(new File(home, "markdown/spring_boot_overview.md")));
         Node document = parser.parseReader(new FileReader(new File(home, "markdown/apache_avro_overview.md")));
@@ -268,6 +525,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
 
         // Create presentation
         XMLSlideShow ppt = new XMLSlideShow();
+        //ppt.setPageSize(new Dimension(960, 540));
         XSLFPictureData[] pictures = new XSLFPictureData[]{
                 ppt.addPicture(new FileInputStream(IMAGES[0]), PictureData.PictureType.JPEG)
         };
@@ -280,59 +538,32 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         // Retriving the slide layout
         XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT);
 
-        for(Node node: visitor.nodes) {
-            if(node instanceof FencedCodeBlock) {
-                FencedCodeBlock block = (FencedCodeBlock) node;
-                // Creating the 1st slide
-                XSLFSlide slide = ppt.createSlide(layout);
-                setSlide(slide, ppt.getPictureData().get(0));
+        for (Buffer buffer : visitor.nodes) {
+            if (buffer.node != null) {
+                Node node = buffer.node;
+                if (node instanceof FencedCodeBlock) {
 
-                XSLFTextShape title = slide.getPlaceholder(0);
-                // Clearing text to remove the predefined one in the template
-                title.clearText();
+                    FencedCodeBlock block = (FencedCodeBlock) node;
+                    String info = block.getInfo();
+                    if (info == null || info.trim().length() == 0) {
+                        createCode(ppt, block);
 
-                XSLFTextParagraph p = title.addNewTextParagraph();
-                XSLFTextRun r1 = p.addNewTextRun();
-                r1.setText(getTitle(block));
-                r1.setFontColor(FONT_COLOR);
-                r1.setFontSize(42.);
-
-                //selection of body placeholder
-                XSLFTextShape body = slide.getPlaceholder(1);
-
-                body.setLeftInset(75.);
-                body.setRightInset(50.);
-
-                //clear the existing text in the slide
-                body.clearText();
-
-                List<String> items = getBodyAsList(block);
-                for(String item: items) {
-                    if (item.startsWith("- ")) {
-                        //adding new paragraph
-                        XSLFTextParagraph paragraph = body.addNewTextParagraph();
-                        paragraph.setBulletAutoNumber(AutoNumberingScheme.arabicPeriod, 1);
-                        XSLFTextRun textRun = paragraph.addNewTextRun();
-                        textRun.setFontColor(FONT_COLOR);
-                        textRun.setFontSize(24.);
-                        textRun.setText(item.substring(2).trim());
-                    } else if(item.startsWith("-- ")) {
-                        XSLFTextParagraph paragraph = body.addNewTextParagraph();
-                        paragraph.setIndentLevel(1);
-                        XSLFTextRun textRun = paragraph.addNewTextRun();
-                        textRun.setFontColor(FONT_COLOR);
-                        textRun.setFontSize(20.);
-                        textRun.setText(item.substring(3).trim());
-
+                    } else if (info.startsWith("pptx")) {
+                        createDefaultSlide(ppt, block);
                     }
+
                 }
 
+            } else {
+                createSide(buffer, ppt);
             }
 
         }
 
+        createEnd(ppt);
+
         // Save presentation
-        FileOutputStream out = new FileOutputStream(new File (home, "avro.pptx"));
+        FileOutputStream out = new FileOutputStream(new File(home, "avro.pptx"));
         ppt.write(out);
         out.close();
 

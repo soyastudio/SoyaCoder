@@ -3,6 +3,7 @@ package soya.framework.transform.markdown;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
+import org.apache.commons.beanutils.DynaProperty;
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.poi.sl.usermodel.*;
 import org.apache.poi.xslf.usermodel.*;
@@ -15,6 +16,8 @@ import org.openxmlformats.schemas.drawingml.x2006.main.CTRelativeRect;
 import org.openxmlformats.schemas.presentationml.x2006.main.CTBackgroundProperties;
 
 import java.awt.*;
+import java.beans.BeanDescriptor;
+import java.beans.FeatureDescriptor;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -399,7 +402,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         XSLFTextParagraph paragraph = textBox.addNewTextParagraph();
         XSLFTextRun textRun = paragraph.addNewTextRun();
 
-        String json = GSON.toJson(JsonParser.parseString(block.getLiteral()));
+        //String json = GSON.toJson(JsonParser.parseString(block.getLiteral()));
         //textRun.setFontColor(FONT_COLOR);
         textRun.setFontColor(Color.white);
         textRun.setFontSize(10.0);
@@ -516,9 +519,13 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
 
     public static void main(String[] args) throws Exception {
 
+        BeanDescriptor beanDescriptor;
+        DynaProperty property;
+        FeatureDescriptor featureDescriptor;
+
         Parser parser = Parser.builder().build();
         //Node document = parser.parseReader(new FileReader(new File(home, "markdown/spring_boot_overview.md")));
-        Node document = parser.parseReader(new FileReader(new File(home, "markdown/apache_avro_overview.md")));
+        Node document = parser.parseReader(new FileReader(new File(home, "markdown/apache_avro_developer.md")));
 
         SoyaCoderMarkdown visitor = new SoyaCoderMarkdown();
         document.accept(visitor);
@@ -563,7 +570,7 @@ public class SoyaCoderMarkdown extends AbstractVisitor {
         createEnd(ppt);
 
         // Save presentation
-        FileOutputStream out = new FileOutputStream(new File(home, "avro.pptx"));
+        FileOutputStream out = new FileOutputStream(new File(home, "avro_for_developer.pptx"));
         ppt.write(out);
         out.close();
 

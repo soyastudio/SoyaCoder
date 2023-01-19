@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>soya.framework</groupId>
-    <artifactId>SoyaCoderApplication</artifactId>
+    <groupId>soya.application.codecraft</groupId>
+    <artifactId>Application</artifactId>
     <packaging>pom</packaging>
-    <name>SoyaCoderApplication</name>
+    <name>Application</name>
     <version>1.0-SNAPSHOT</version>
     <url>https://github.com/</url>
 
@@ -15,7 +15,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
-        <springframework.boot.version>2.2.2.RELEASE</springframework.boot.version>
+        <springframework.boot.version>2.5.12</springframework.boot.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <commons-lang3-version>3.9</commons-lang3-version>
@@ -61,7 +61,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -238,7 +237,9 @@
     </dependencyManagement>
 
     <modules>
-        <module>transformer</module>
+        <module>framework</module>
+        <module>markdown</module>
+        <module>springboot</module>
     </modules>
 
 </project>

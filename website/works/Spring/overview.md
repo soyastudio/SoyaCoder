@@ -13,6 +13,9 @@
 - ClassLoader.getResources()
 - ASM
 
+
+
+
 ## Predefine POJO Beans to Include almost All Commonly-Used Java Libraries
 
 ## Sub-container to manage defined components
@@ -23,7 +26,7 @@
 - Spring Integration
 - Apache Camel Starter
 
-## Springboot for Rich Jar/War Packaging and Bootstrap
+## SpringBoot for Rich Jar/War Packaging and Bootstrap
 
 ## Initializr for Quick Startup and Solving the Dependent Libraries' Compatibility
 

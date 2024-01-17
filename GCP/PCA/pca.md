@@ -52,8 +52,38 @@ Business Terms to Know:
 - Service-Level Indicator (SLI)
 - Service-Level Objective (SLO)
 
+## Analyzing Technical Requirements
+
+### Functional Requirements
+
+#### Understanding Compute Requirements
+- Compute Engine
+- App Engine
+- Cloud Functions
+- Kubernetes Engine
+
+#### Understanding Storage Requirements
+- Cloud Storage
+- Cloud File Storage
+- Bigtable
+- Cloud DataStore
+- CloudSQL
+- Spanner
+- Bigquery
+
+#### Understanding Network Requirements
+- VPCs
+
+### Nonfunctional Requirements
+- Availability
+- Reliability
+- Scalability
+- Durability
 
 # Chapter 2 Designing for Business Requirements
+
+## Business Use Cases and Product Strategy
+
 
 
 # Chapter 3 Designing for Technical Requirements

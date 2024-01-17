@@ -35,8 +35,18 @@ Considerations include:
 ```
 
 ### Reducing Time to Recover from an Incident
+- Alert
+- Monitor
+- Logging
+
 
 ### Improving Compliance with Industry Regulations
+Major regulations include the following:
+- Health Insurance Portability and Accountability Act (HIPAA), a healthcare regulation
+- Children’s Online Privacy Protection Act (COPPA), a privacy regulation
+- Sarbanes-Oxley Act (SOX), a financial reporting regulation
+- Payment Card Industry Data Standard (PCI), a data protection regulation for credit card processing
+- General Data Protection Regulation (GDPR), a European Union privacy protection regulation
 
 Business Terms to Know:
 - Brick and Mortar
@@ -80,16 +90,207 @@ Business Terms to Know:
 - Scalability
 - Durability
 
+
+
+
 # Chapter 2 Designing for Business Requirements
 
-## Business Use Cases and Product Strategy
+## Business Use Cases and Product 
+
+
+
+### Dress4Win Strategy
+
+### Mountkirk Games Strategy
+
+### TerramEarth Strategy
+
+## Application Design and Cost Considerations
+
+Total Cost of Ownership (TCO):
+- Software licensing costs:
+- Cloud computing costs, including infrastructure and managed services
+- Cloud storage costs
+- Data ingress and egress charges
+- Cost of DevOps personnel to develop and maintain the service
+- Cost of third-party services used in an application
+- Charges against missed service-level agreements
+- Network connectivity charges, such as those for a dedicated connection between an on-premises data center and Google Cloud
+
+### Managed Services
+
+Managed services are good options when:
+- Users do not need low-level control over the resources providing the service, such as choosing the operating system to run in a VM.
+- Managed services provide a functionality that would be difficult or expensive to implement, such as developing a machine vision application.
+- There is little competitive advantage to performing resource management tasks. For example, the competitive advantage that may come from using Apache Spark for analytics stems from the algorithms and analysis methodologies, not from the administration of the Spark cluster.
+
+Examples of Google Cloud Platform Managed Services:
+- AutoML Tables
+- Cloud AutoML
+- Cloud Inference API
+- Cloud Speech-to-Text
+- Cloud Text-to-Speech
+- Natural 
+- Translation
+- BigQuery
+- Cloud Datalab
+- Cloud Dataprep
+- Dataproc
+- Google Data Studio
+- Cloud Data Fusion
+- Data Catalog
+- Dataflow
+- Cloud Spanner
+- Cloud SQL
+- Cloud Deployment Manager
+- Cloud Source Control Repositories
+- Cloud Pub/Sub
+- Cloud Composer
+- Bigtable
+- Cloud Data Transfer
+- Cloud Memorystore
+- Cloud Storage
+
+### Preemptible Virtual Machines
+Preemptible VMs are well suited for batch jobs or other workloads that can be disrupted and restarted. 
+
+They are NOT suitable for running services that need high availability, such as
+- A database or user-facing service, like a web server.
+- Applications that manage state in memory or on the local SSD
+- Live migrate
+- Stateful applications
+
+### Data Lifecycle Management
+- Memorystore
+- Databases
+- Time-series databases
+- Object storage
+
+Lifecycle conditions can be based on the following:
+- The age of an object
+- When it was created
+- The object’s storage class
+- The number of versions of an object
+- Whether or not the object is “live” (an object in nonversions bucketed is “live”; archived objects are not live)
+
+
+## Systems Integration and Data Management
+
+### Systems Integration Business Requirements
+- Front-end: web, mobile...
+- API: 
+- Backend applications: 
+- Data type:
+- Third-party integration:RDBMS, NoSQL
+- Data process: 
+- Logging, monitor and alert
+- DevOps
+
+### Data Management Business Requirements
+- What kind of data will be stored and collected: structured, non-structured, blob, file...
+- How much data will be collected and stored
+- How long will it be stored
+- What processing will be applied to the data
+  - Distance between the location of stored data and services that will process the data
+  - Volume of data that is moved from storage to processing services: batch, Cloud Dataflow (Apache Beam)
+  - Acceptable latency when reading and writing the data
+  - Stream or batch processing
+  - In the case of stream processing, how long to wait for late arriving data
+- Who will have access to the data
+
+
+## Compliance and Regulation
+
+### Privacy Regulations
+- HIPAA 
+- GLBA
+- GDPR
+- PCI DSS
+- COPPA
+
+### Data Integrity Regulations
+- SOX
+
+### Security
+- Confidentiality
+- Integrity
+- Availability
+
+## Success Measures
+
+### Key Performance Indicators
+- Project 
+- Operations KPI
+
+### Return on Investment (ROI)
 
 
 
 # Chapter 3 Designing for Technical Requirements
 
+## High Availability
+
+### Compute Availability
+- Compute Engine: Hardware Redundancy and Live Migration; Managed Instance Groups; Multiple Regions and Global Load Balancing
+- Kubernetes Engine: 
+- App Engine and Cloud Functions: are fully managed services, focus on application issues and DevOps best practices
+
+### Storage Availability
+- Availability of Object, File, and Block Storage
+  - Cloud Storage
+  - Cloud Filestore
+  - Persist Disk
+- Availability of Databases
+  - Self-Managed Database Redundancy: Shared disk; Filesystem replication; Synchronous multi-master replication
+  - Managed Databases: 
+- Network Availability
+  - Use redundant network connections
+  - Use Premium Tier network
+- Application Availability
+
+## Scalability
+### Scaling Compute Resources
+- Autoscaler for average CPU utilization; HTTP load balancing capacity;
+- Stackdriver for api_request_count; log_entry_count; memory_usage; uptime...
+
+### Scaling Compute in Kubernetes Engine
+
+### Scaling Storage Resources
+
+### Network Design for Scalability
+
+
+
+## Reliability
+
+### Measuring Reliability
+
+For distributed systems: 
+
+
+### Reliability Engineering
+- Identifying how to monitor services.
+- Considering alerting conditions. 
+- Using existing incident response procedures with the new system. 
+- Implementing a system for tracking outages and performing post-mortems to understand why a disruption occurred.
+
 
 # Chapter 4 Designing Compute Systems
+
+## Compute Engine (PaaS)
+
+- Specifying Virtual Machine
+- Machine Types and Service Accounts:
+  - Based on CPUs and Memory: standard instances; highmem types; highcpu types; ultramem types and megamem types
+  - User-customized 
+  - VMs can have 8 networks interfaces
+  - Service account:
+- Preemptible Virtual Machine
+- Shielded VMs: are instances with enhanced security controls, including Secure boot; vTPM (Virtual Trusted Platform Module); Integrity monitoring
+- Instance Groups: use managed instance groups (MIGs) with instance template
+
+## App Engine
+
 
 
 # Chapter 5 Designing Storage Systems

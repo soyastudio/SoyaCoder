@@ -290,6 +290,39 @@ For distributed systems:
 - Instance Groups: use managed instance groups (MIGs) with instance template
 
 ## App Engine
+- Standard
+- Customized
+
+## Kubernetes Engine
+
+### Kubernetes Cluster Architecture
+
+#### Instances in Kubernetes
+- Cluster master: controller manager; API server, scheduler, etcd
+- Nodes: kubelet
+
+#### Kubernetes’ Organizing Abstractions
+- Pods
+- Services: A service is an abstraction with a stable API endpoint and stable IP address
+- ReplicaSets: controller that manages the number of pods running for a deployment
+- Deployments: 
+- PersistentVolumes: Kubernetes’ way of representing storage allocated or provisioned for use by a pod. (PersistentVolumeClaim)
+- StatefulSets: used to designate pods as stateful and assign a unique identifier to them. Kubernetes uses these to track which clients are using which pods and to keep them paired.
+- Ingress: an object that controls external access to services running in a Kubernetes  cluster
+
+### Cloud Functions
+#### Events, Triggers, and Functions
+
+Events:
+- Cloud Storage
+- Cloud Pub/Sub
+- HTTP
+- Firebase
+- Stackdriver Logging
+
+
+
+## Compute System Provisioning
 
 
 

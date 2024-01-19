@@ -321,30 +321,260 @@ Events:
 - Stackdriver Logging
 
 
-
 ## Compute System Provisioning
+
+Deployment Manager and Configuration Template
+
+### Additional Design Issues
+
+#### Managing State in Distribute Systems
+- Persistent Assignment of Clients to Instances
+- Persistent State and Volatile Instances
+  - In-Memory Cache (Cloud Memorystore, managed Redis)
+  - Database
+
+#### Data Flows and Pipelines
+- Synchronous and Asynchronous Operations
+- Cloud Pub/Sub Pipelines
+- Cloud Dataflow Pipelines
+
+#### Monitoring and Alerting
+
+
 
 
 
 # Chapter 5 Designing Storage Systems
 
+## Overview of Storage Services
+Factors influence the choice of storage systems:
+- Is the data structured or unstructured?
+- How frequently will the data be accessed?
+- What is the read/write pattern? What is the frequency of reads versus writes?
+- What are the consistency requirements?
+- Can Google-managed-keys be used for encryption, or do you need to deploy customer managed keys?
+- What are the most common query patterns?
+- Does your application require mobile support, such as synchronization?
+- For structured data, is the workload analytic or transactional?
+- Does your application require low-latency writes?
+
+## Object Storage with Google Cloud Storage
+ - Organizing Objects in a Namespace (Google Cloud Storage Bucket vs Azure blob container)
+ - Cloud Storage FUSE
+ - Storage Tiers:
+   - Regional
+   - Multiregional
+   - Nearline
+   - Codeline
+
+## Network-Attached Storage with Google Cloud Filestore
+- Standard and Premium Comparison
+- Cloud Filestore filesystems can be mounted using operating system commands
+- IAM roles are used to control access to Cloud Filestore administration
+
+## Database
+
+### Relational Database Overview: ACID
+
+### Cloud SQL
+Key features of Cloud SQL include the following:
+- All data is encrypted at rest and in transit.
+- Data is replicated across multiple zones for high availability.
+- GCP manages failover to replicas.
+- Support for standard database connectors and tools is provided.
+- Stackdriver is integrated monitoring and logging.
+
+Limitation:
+- Can only scale vertically
+
+### Cloud Spanner
+- Supports horizontal scalability across regions
+- Supports common relational features, such as schemas for structured data and SQL for querying
+- Supports strong consistency, so there is no risk of data anomalies caused by eventual consistency
+- Manages replication
+
+### Analytics Database: BigQuery
+
+
+
+### NoSQL Databases (Suite for flexible schema)
+- Bigtable: (vs Hadoop HBase)
+- Datastore: JSON-like document based (vs MongoDB)
+- Firestore
+
+### Caching with Cloud Memorystore: managed Redis service
+
+
+## Data Retention and Lifecycle Management
+
+
+## Networking and Latency
+
+Three ways of addressing network latency concerns are as follows:
+- Replicating data in multiple regions and across continents
+- Distributing data using Cloud CDN (Content Delivery Network)
+- Using Google Cloud Premium Network tier
+
 
 # Chapter 6 Designing Networks
+
+## Virtual Private Clouds
+
+### VPC Subnets
+
+### Shared VPC
+
+### VPC Network Peering
+
+## Firewall Rules
+
+
+## Hybrid-Cloud Implementation Options
+- Cloud VPN
+- Cloud Interconnect
+- Direct peering
+
+
+## Load Balancing
+
+- Regional Load Balancing:
+  - Network TCP/UDP
+  - Internal TCP/UDP
+- Global Load Balancing:
+  - HTTP(S)
+  - SSL Proxy
+  - TCP Proxy
 
 
 # Chapter 7 Designing for Security and Legal Compliance
 
+## Identity and Access Management
+The primary elements of IAM are as follows:
+- Identities and groups
+- Resources
+- Permissions
+- Roles
+- Policies
+
+
+### Identities and Groups
+- Google account
+- Service account
+- Cloud Identity
+- Groups: Google Group; G Suite domain (for users who are not identities)
+
+### Resources
+- Projects
+- VMs
+- App Engine applications
+- Cloud Storage buckets
+- Pub/Sub topics
+
+### Permissions
+
+### Roles
+- Predefined
+- Primitive: Viewer, Editor, Owner
+- Custom
+
+### Policies
+
+## Data Security
+
+### Encryption
+#### Encryption at Rest
+- Data at rest is encrypted by default in Google Cloud Platform.
+- Data is encrypted at multiple levels, including the application, infrastructure, and device levels.
+- Data is encrypted in chunks. Each chunk has its own encryption key, which is called a data encryption key.
+- Data encryption keys are themselves encrypted using a key encryption key.
+
+#### Encryption in Transit
+- Within Google network: authenticated but not encrypted
+- Outside Google network: encrypted
+
+### Key Management
+- Default Key Management (DEK)
+- Cloud KMS Key Management
+- Customer-Supplied Keys
+
+### Security Evaluation
+- Penetration Testing
+- Auditing: logging
+
+### Security Design Principles
+- Separation of Duties
+- Least Privilege
+- Defense in Depth
+
+### Major Regulations
+
 
 # Chapter 8 Designing for Reliability
+
+## Improving Reliability with Stackdriver
+
+
+
+
+
+
+
+
+
 
 
 # Chapter 9 Analyzing and Defining Technical Processes
 
 
+
+
+
+
+
+
+
+
+
+
+
 # Chapter 10 Analyzing and Defining Business Processes
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Chapter 11 Development and Operations
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 # Chapter 12 Migration Planning
+
+
+
+
+
+
+
+
+
+
+

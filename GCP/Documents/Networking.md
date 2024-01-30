@@ -1,3 +1,42 @@
+# Virtual Private Cloud
+
+## [Overview](https://cloud.google.com/vpc/docs/overview)
+### VPC networks
+- A VPC network does the following:
+  - Provides connectivity for your Compute Engine virtual machine (VM) instances, including Google Kubernetes Engine (GKE) clusters, serverless workloads, and other Google Cloud products built on Compute Engine VMs.
+  - Offers built-in internal passthrough Network Load Balancers and proxy systems for internal Application Load Balancers.
+  - Connects to on-premises networks by using Cloud VPN tunnels and VLAN attachments for Cloud Interconnect.
+  - Distributes traffic from Google Cloud external load balancers to backends.
+- Firewall
+- Routes
+- Forwarding Rules
+- Interfaces and IP addresses
+
+### Interfaces and IP addresses
+- IP address
+- Alias IP address
+- Multiple network interfaces
+
+### Sharing and Peering
+- Shared VPC
+- VPC Network Peering
+
+### Hybrid cloud
+
+### Cloud Load Balancing
+
+### Special configurations
+
+
+## VPC networks
+
+[Andromeda](nsdi18-dalton.pdf)
+
+### Networks and subnets
+Each VPC network consists of one or more IP address ranges called subnets. Subnets are regional resources, and have IP address ranges associated with them.
+
+
+
 # [Google Cloud Networking](https://www.youtube.com/watch?v=Hg6GH-V5YqE)
 
 ## Precondition

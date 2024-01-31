@@ -6,6 +6,10 @@
 - Kubernate Engine (GKE)
 - Cloud Functions
 
+## Network and Security
+- [Google Cloud Network](./Documents/Networking.md)
+- Google Cloud Security
+
 ## Storage
 - Cloud Storage
 - Cloud FileStore
@@ -13,10 +17,6 @@
 - [Cloud Spanner](Documents/CloudSpanner.md)
 - Big Table
 - Cloud DataStore
-
-## Network and Security
-- [Google Cloud Network](./Documents/Networking.md)
-- Google Cloud Security
 
 ## Big Data
 - PubSub

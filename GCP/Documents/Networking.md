@@ -1,4 +1,4 @@
-# Virtual Private Cloud
+# [Virtual Private Cloud](https://cloud.google.com/vpc/docs/overview)
 
 ## [Overview](https://cloud.google.com/vpc/docs/overview)
 ### VPC networks
@@ -33,7 +33,103 @@
 [Andromeda](nsdi18-dalton.pdf)
 
 ### Networks and subnets
+#### Subnets
 Each VPC network consists of one or more IP address ranges called subnets. Subnets are regional resources, and have IP address ranges associated with them.
+
+[TOOL: CIDR to IPv4 Conversion](https://www.ipaddressguide.com/)
+
+#### Types of subnet
+- IPv4 only (single-stack) subnets, with only IPv4 subnet ranges
+- IPv4 and IPv6 (dual-stack) subnets, with both IPv4 and IPv6 subnet ranges
+
+#### Purposes of subnets
+- Regular subnets: This is the default subnet type. Regular subnets are created by users or automatically created in auto mode networks to be used with VM instances. Regular subnets have a purpose of PRIVATE in the gcloud CLI or API. The purpose is None in the Google Cloud console.
+- Private Service Connect subnets: A subnet to use to publish a managed service by using Private Service Connect.
+- Proxy-only subnets: A proxy-only subnet to use with regional Envoy-based load balancers.
+- Private NAT subnets: A subnet that is reserved for use as the source range for Private NAT. This subnet is set to --purpose=PRIVATE_NAT
+
+#### IPv4 subnet ranges
+- Valid IPv4 subnet ranges
+- Prohibited IPv4 subnet ranges
+- Unusable addresses in IPv4 subnet rangs
+- Auto mode IPv4 rangs
+- Additional consideration
+
+#### IPv6 subnet ranges
+- IPv6 specifications
+- IPv6 range assignment
+
+### Virtual machine instances
+A Compute Engine virtual machine (VM) instance is a virtual machine that is hosted on Google's infrastructure. VM instances include Google Kubernetes Engine (GKE) clusters, App Engine flexible environment instances, and other Google Cloud products built on Compute Engine VMs.
+
+### Specifications
+- VPC networks, including their associated routes and firewall rules, are global resources. They are not associated with any particular region or zone.
+- Subnets are regional resources.
+- Each subnet defines a range of IPv4 addresses. Subnets in custom mode VPC networks can also have a range of IPv6 addresses.
+- Traffic to and from instances can be controlled with network firewall rules. Rules are implemented on the VMs themselves, so traffic can only be controlled and logged as it leaves or arrives at a VM.
+- Resources within a VPC network can communicate with one another by using internal IPv4 addresses, internal IPv6 addresses, or external IPv6 addresses, subject to applicable network firewall rules. For more information, see communication within the network.
+- Instances with internal IPv4 or IPv6 addresses can communicate with Google APIs and services.
+- Network administration can be secured by using Identity and Access Management (IAM) roles.
+- An organization can use Shared VPC to keep a VPC network in a common host project. Authorized IAM principals from other projects in the same organization can create resources that use subnets of the Shared VPC network.
+- VPC networks can be connected to other VPC networks in different projects or organizations by using VPC Network Peering.
+- VPC networks can be securely connected in hybrid environments by using Cloud VPN or Cloud Interconnect.
+- VPC networks support GRE traffic, including traffic on Cloud VPN and Cloud Interconnect. VPC networks do not support GRE for Cloud NAT or for forwarding rules for load balancing and protocol forwarding. Support for GRE allows you to terminate GRE traffic on a VM from the internet (external IP address) and Cloud VPN or Cloud Interconnect (internal IP address). The decapsulated traffic can then be forwarded to a reachable destination. GRE enables you to use services such as Secure Access Service Edge (SASE) and SD-WAN.
+- VPC networks support IPv4 and IPv6 unicast addresses. VPC networks do not support broadcast or multicast addresses within the network.
+
+### Organization policy constraints
+
+### Routes and firewall rules
+
+#### [Routs](https://cloud.google.com/vpc/docs/routes)
+- Routing in Google Cloud (routing table)
+- Route types
+  - System-generated default routes
+  - Subnet routes
+  - Dynamic routes: based on Border Gateway Protocol (BGP)
+- Applicability and order
+  - Applicable routes
+  - Special return paths
+  - Routing order
+- Static Routess
+
+#### Dynamic routing mode
+Each VPC network has an associated dynamic routing mode that controls the behavior of all of its Cloud Routers. Cloud Routers manage BGP sessions for Google Cloud connectivity products.
+
+BGP Route Advertisement: BGP route advertisement refers to the process of broadcasting routing information to neighboring routers. This is an important aspect of the Border Gateway Protocol (BGP), which is used for exchanging routing and reachability information among autonomous systems on the internet.
+
+#### Firewall rules
+
+### Communications and access
+- Communication within the network: (default-allow-internal rule)
+- Internet access requirements
+- Communications and access for App Engine
+  - App Engine standard environment: Only App Engine firewall rules apply to ingress traffic. Because App Engine standard environment instances do not run inside your VPC network, VPC firewall rules do not apply to them.
+  - App Engine flexible environment: Both App Engine and VPC firewall rules apply to ingress traffic. Inbound traffic is only permitted if it is allowed by both types of firewall rules. For outbound traffic, VPC firewall rules apply.
+- Traceroute to external IP addresses
+- Egress throughput limits
+- Packet size
+
+### Network performance
+- Latency
+- Packet loss
+
+
+## [Create and manage VPC networks](https://cloud.google.com/vpc/docs/create-modify-vpc-networks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

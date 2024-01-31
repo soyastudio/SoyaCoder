@@ -97,6 +97,7 @@ Each VPC network has an associated dynamic routing mode that controls the behavi
 
 BGP Route Advertisement: BGP route advertisement refers to the process of broadcasting routing information to neighboring routers. This is an important aspect of the Border Gateway Protocol (BGP), which is used for exchanging routing and reachability information among autonomous systems on the internet.
 
+In a VPC network, a route consists of a single destination prefix in CIDR format and a single next hop. Next hop is a routing term that refers to the next closest router a packet can go through. The next hop is among the series of routers that are connected together in a network and is the next possible destination for a data packet. More specifically, next hop is an IP address entry in a router’s routing table, which specifies the next closest/most optimal router in its routing path. Every single router maintains its routing table with a next hop address, which is calculated based on the routing protocol used and its associated metric.
 #### Firewall rules
 
 ### Communications and access

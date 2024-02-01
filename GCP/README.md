@@ -29,3 +29,5 @@
 
 ## Certifications
 - [PCA](./Certificates/pca.md)
+  - [Google Professional Cloud Architect Study Guide](./Certificates/PCA.pdf)
+  - [Google Cloud Architecture Fundamentals](./Documents/Architecture.md)

@@ -5,9 +5,9 @@
 ### Concepts related to identity
 In IAM, you grant access to principals. Principals can be of the following types:
 - Google Account
-- Service account
-- Google group
-- Google Workspace account
+- Service account: service accounts provide a way to manage authentication and authorization when a human is not directly involved, such as when an application needs to access Google Cloud resources.
+- Google group: A Google group is a named collection of Google Accounts and service accounts.
+- Google Workspace account: Google Workspace accounts are associated with your organization's internet domain name, such as example.com
 - Cloud Identity domain
 - All authenticated users
 - All users

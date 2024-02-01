@@ -1,4 +1,5 @@
-2. We as parents of Terry strongly believe that Terry will be a good candidate for the Spectrum program for the following reasons:
+2.
+We as parents of Terry strongly believe that Terry will be a good candidate for the Spectrum program for the following reasons:
 - Terry has demonstrated incredible ability to critical think via conversations with him as we believe the questions or topics he thinks about are beyond that of a 12 year old.
 - We have never pushed Terry in regards to his academic studies as he takes full responsibility over his own academic success as shown in his report card.
 - Terry is very independent and is skilled at research in finding his own answers.

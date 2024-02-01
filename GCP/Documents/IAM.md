@@ -20,13 +20,39 @@ In IAM, you grant access to principals. Principals can be of the following types
   - Predefined roles:
   - Custom roles:
 - Allow policy
-- Resource hierarch
+  - Example
+```
+{
+  "bindings": [
+    {
+      "role": "roles/storage.objectAdmin",
+      "members": [
+        "user:ali@example.com",
+        "serviceAccount:my-other-app@appspot.gserviceaccount.com",
+        "group:admins@example.com",
+        "domain:google.com"
+      ]
+    },
+    {
+      "role": "roles/storage.objectViewer",
+      "members": [
+        "user:maria@example.com"
+      ]
+    }
+  ]
+}
+```
+IAM and policy APIs
+
+
+- Resource hierarchy
   - Organization: root
   - Folders
   - Projects
   - Resources
 
-### IAM support for Google Cloud services
+### [IAM support for Google Cloud services](https://cloud.google.com/iam/docs/understanding-roles#predefined_roles)
 
 ### Consistency model for the IAM API
+The IAM API is eventually consistent. (finally not immediately)
 

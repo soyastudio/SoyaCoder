@@ -161,6 +161,43 @@ routing protocol used and its associated metric.
 - Latency
 - Packet loss
 
+
+# [Cloud Router](https://cloud.google.com/network-connectivity/docs/router/concepts/overview)
+
+## Cloud Router overview
+Cloud Router is a fully distributed and managed Google Cloud service that uses the Border Gateway Protocol (BGP) to advertise IP prefixes. It programs dynamic routes based on the BGP advertisements that it receives from a peer. Instead of a physical device or appliance, each Cloud Router consists of software tasks that act as BGP speakers and responders. A Cloud Router also serves as the control plane for Cloud NAT. Cloud Router provides BGP services for the following Google Cloud products:
+- Cloud Interconnect
+- Cloud VPN, specifically HA VPN
+- Router appliance (part of Network Connectivity Center)
+
+### Specifications
+- Autonomous system number (ASN)
+- BGP peering addresses
+- Access to internal load balancers
+- IPv6 support
+
+### Cloud Router software tasks
+
+### Route advertisement modes
+- Default advertisement mode
+  - Regional dynamic routing mode
+  - Global dynamic routing mode
+- Custom advertisement mode
+
+## [Best practices for Cloud Router](https://cloud.google.com/network-connectivity/docs/router/concepts/best-practices)
+- If your on-premises Border Gateway Protocol (BGP) device supports Bidirectional Forwarding Detection (BFD), enable it on your on-premises BGP device and on the Cloud Router to provide a high-availability network link that can respond faster to link failures.
+- If your peer router supports it, consider enabling MD5 authentication on your BGP sessions. By default, BGP sessions are unauthenticated.
+- Enable graceful restart on your on-premises BGP device. With graceful restart, traffic between networks isn't disrupted in the event of a Cloud Router or on-premises BGP device failure as long as the BGP session is re-established within the graceful restart period.
+- If graceful restart is not supported or enabled on your device, configure two on-premises BGP devices with one tunnel each to provide redundancy. If you don't configure two separate on-premises devices, Cloud VPN tunnel traffic can be disrupted in the event of a Cloud Router or an on-premises BGP device failure.
+- For high reliability, set up redundant routers and BGP sessions even if your on-premises device supports graceful restart. In the event of non-transient failures, you are protected even if one path fails. For more information, see Redundant Cloud VPN tunnels.
+- To use dynamic routing to connect your on-premises network to multiple Google Cloud projects, see the scenarios for VPC Network Peering and Shared VPC.
+- To ensure that you do not exceed Cloud Router limits, use Cloud Monitoring to create alerting policies. For example, you can use the metrics for learned routes to create alerting policies for the limits for learned routes.
+- If appropriate, you can manually configure custom learned routes and apply them to a BGP session. Custom learned routes can be helpful if you want to avoid the limitations of static routes. For example, static routes can't detect a loss of reachability in the next hop of a route. In contrast, custom learned routes can detect a loss of reachability, and they react accordingly to avoid dropping traffic without notification.
+
+
+
+
+
 # [VPC Deep Dive and Best Practices](https://www.youtube.com/watch?v=wmP6SQe5J7g)
 
 ## Virtual Private Cloud

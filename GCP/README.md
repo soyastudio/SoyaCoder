@@ -1,10 +1,14 @@
 # Google Cloud Platform
 
+## Tools
+- Stackdriver
+- Cloud APIs
+
 ## Compute
 - [Compute Engine (VMs)](./Documents/ComputeEngine.md)
-- [AppEngine](Documents/AppEngine.md)
-- Kubernate Engine (GKE)
-- Cloud Functions
+- [AppEngine](./Documents/AppEngine.md)
+- [Kubernate Engine (GKE)](./Documents/GKE.md)
+- [Cloud Functions](https://cloud.google.com/functions/docs/console-quickstart)
 
 ## Network and Security
 - [Google Cloud Network](./Documents/Networking.md)

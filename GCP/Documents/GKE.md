@@ -67,6 +67,7 @@ Kubernetes do not:
 #### Node to Control Plane
 
 #### Control plane to node
+
 - API server to kubelet
 - API server to nodes, pods and services
 - SSH tunnels
@@ -86,5 +87,52 @@ Kubernetes do not:
 
 ### Mixed Version Proxy
 
-# GKE
+# [GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview)
+
 ## Overview
+
+A GKE environment consists of nodes, which are Compute Engine virtual machines (VMs), that are grouped together to form
+a cluster. You package your apps (also called workloads) into containers. You deploy sets of containers as Pods to your
+nodes. You use the Kubernetes API to interact with your workloads, including administering, scaling, and monitoring.
+
+# [GKE: Concepts for Networking](https://www.youtube.com/watch?v=aVBV4O3h4AY)
+## GKE Cluster: architecture
+- User VPC Network: for Nodes
+- Google Managed VPC Network (Master): for Control Plane
+
+## GKE Cluster: VPC-native cluster
+
+- Natively routable
+- Automatically generated subnet routes
+- Firewall rules for Pod IPs
+- Pod and secondary IP accessible from on-prem privately
+
+## IP addresses in VPC-native cluster
+
+- Nodes
+- Pods
+- Services
+
+Note: creating cluster in shared VPC environment, GKE cannot manage secondary IP addresses. So network admin need to
+create secondary IPs before creating GKE cluster.
+
+## VPC-native cluster types
+
+- Public: Node IPs are external IPs
+- Private: recommended. VPC Peer between User VPC Network and Google Managed VPC Network
+
+## IP masquerade agent
+
+## Access services
+- Service type:loadBalancer: Container-native load balancing
+  - Unlike pods, services using stable ip addresses and google use 
+- Ingress object: ips
+- Gateway API: HTTP routes
+
+## Network security considerations
+- Authorized networks
+- IAM
+- RBAC (Role-based access control)
+- Workload identity
+- Firewall rules
+- Network policies

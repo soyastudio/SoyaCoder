@@ -12,19 +12,30 @@
 
 ## Network and Security
 - [Google Cloud Network](./Documents/Networking.md)
+  - [Cloud CDN and Media CDN](https://cloud.google.com/cdn/docs/overview)
+- [Cloud Load Balancing](./Documents/CloudLoadBalancing.md)
 - Google Cloud Security
   - [IAM](./Documents/IAM.md)
+  - [Google Cloud Armor](https://cloud.google.com/armor/docs/cloud-armor-overview)
 
 ## Storage
-- Cloud Storage
-- Cloud FileStore
-- Cloud SQL
-- [Cloud Spanner](Documents/CloudSpanner.md)
-- Big Table
-- Cloud DataStore
+- Data Storage
+  - [Cloud Storage](./Documents/CloudStorage.md)
+  - [Cloud FileStore](https://cloud.google.com/filestore/docs/overview)
+  - Block Storage (Persistent Disk for VMs)
+- SQL Database
+  - [Cloud SQL](https://cloud.google.com/sql/docs/introduction)
+  - [Cloud Spanner](Documents/CloudSpanner.md)
+- NoSQL Database
+  - [Firestore](Documents/Firestore.md)
+  - [Cloud DataStore](Documents/CloudDatastore.md)
+- In-memory Storage
+  - [Google Memorystore for Redis](./Documents/MemoryStore.md)
 
 ## Big Data
-- PubSub
+- [Big Data Fundamental]()
+- [PubSub](./Documents/PubSub.md)
+- Big Table
 - Big Query
 - Data Flow
 - Data Catalog
@@ -33,5 +44,5 @@
 
 ## Certifications
 - [PCA](./Certificates/pca.md)
-  - [Google Professional Cloud Architect Study Guide](./Certificates/PCA.pdf)
+  - [Google Professional Cloud Architect Study Guide](PDFs/PCA.pdf)
   - [Google Cloud Architecture Fundamentals](./Documents/Architecture.md)

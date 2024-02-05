@@ -35,7 +35,7 @@
 
 ## VPC networks
 
-[Andromeda](nsdi18-dalton.pdf)
+[Andromeda](../PDFs/nsdi18-dalton.pdf)
 
 ### Networks and subnets
 

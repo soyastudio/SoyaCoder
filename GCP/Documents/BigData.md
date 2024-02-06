@@ -41,7 +41,7 @@
 
 ## Hadoop
 
-### HDFS (Storage Unit)
+### [HDFS (Storage Unit)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
 
 #### Assumptions and Goals
 
@@ -85,8 +85,8 @@
 
 #### Space Reclamation
 
-### MapReduce
+### [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
 
 
 
-### Yarn ()
+### [Yarn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)

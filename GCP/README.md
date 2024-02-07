@@ -35,7 +35,7 @@
 ## Big Data
 - [Big Data Fundamental](./Documents/BigData.md)
 - [PubSub](./Documents/PubSub.md)
-- Big Table
+- [Bigtable](./Documents/Bigtable.md)
 - Big Query
 - Dataproc
 - Data Flow

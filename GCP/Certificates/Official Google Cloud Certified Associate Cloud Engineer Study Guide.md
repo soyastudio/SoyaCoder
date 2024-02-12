@@ -552,13 +552,12 @@ metric, load-balancing capacity, or queue-based workloads.
     - Pods contain at least one container
     - Multiple containers are used when two or more containers must share resources
     - Pods also use shared networking and storage across containers
-    - Each pod gets a unique IP address and a set of ports
-    - Multiple containers in a pod connect to different ports and can talk to each other on localhost
+    - Each pod gets a unique IP address and a set of ports, multiple containers in a pod connect to different ports and can talk to each other on localhost
     - Pods treat the multiple containers as a single entity for management purposes.
     - Pods are generally created in groups. Replicas are copies of pods and constitute a group of pods that are managed
       as a unit.
     - Pods support autoscaling as well.
-    - Pods are considered ephemeral; that is, they are expected to terminate
+    - Pods are considered ephemeral
     - Pods are usually managed by a controller
 - Services: A service, in Kubernetes terminology, is an object that provides API endpoints with a stable IP address that
   allow applications to discover pods running a particular application.

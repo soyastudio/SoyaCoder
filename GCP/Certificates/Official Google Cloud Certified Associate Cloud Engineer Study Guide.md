@@ -547,12 +547,12 @@ metric, load-balancing capacity, or queue-based workloads.
 
 ### Kubernetes Objects
 
-
 - Pods
     - Pods contain at least one container
     - Multiple containers are used when two or more containers must share resources
     - Pods also use shared networking and storage across containers
-    - Each pod gets a unique IP address and a set of ports, multiple containers in a pod connect to different ports and can talk to each other on localhost
+    - Each pod gets a unique IP address and a set of ports, multiple containers in a pod connect to different ports and
+      can talk to each other on localhost
     - Pods treat the multiple containers as a single entity for management purposes.
     - Pods are generally created in groups. Replicas are copies of pods and constitute a group of pods that are managed
       as a unit.
@@ -568,25 +568,59 @@ metric, load-balancing capacity, or queue-based workloads.
 - Job
 
 ## Deploying Kubernetes Clusters
+
 - Create credentials
 - Create cluster
 
 ### Deploying Kubernetes Clusters Using Cloud Console
 
 ### Deploying Kubernetes Clusters Using Cloud Shell and Cloud SDK
+
 ```
-gcloud beta container
+gcloud (optional alpha, beta) container
 
 ```
 
 ## Deploying Application Pods
 
+- Create a deployment
+    - Container image:
+    - Application:
+    - Cluster
+- YAML file
+- Install kubectl:
+
+```
+gcloud components install kubectl
+
+```
+
+```
+kubectl run ch07-app-deploy --image=ch07-app --port=8080
+
+kubectl scale deployment ch07-app-deploy --replicas=5
+
+```
+
 ## Monitoring Kubernetes
+
 - Enable Stackdriver monitoring and logging
 - Create workspace
 - Stackdriver monitoring page
-  - Resources: list page and details page (CPU usage, Disk/IO, Network Traffic)
-  - Create Alerting Policy
+    - Resources: list page and details page (CPU usage, Disk/IO, Network Traffic)
+- Create Alerting Policy
+    - Conditions: (Resource Metric Threshold Conditions)
+        - Basic Types
+        - Advanced Types
+        - Basic Health
+        - Advanced Health
+    - Notifications: notification channels
+        - Email,
+        - webhooks,
+        - SMS text messaging
+        - Third-party tools such as PagerDuty, Campfire, and Slack
+    - Documentation
+    - Name policy (id)
 
 # Chapter 8 Managing Kubernetes Clusters
 

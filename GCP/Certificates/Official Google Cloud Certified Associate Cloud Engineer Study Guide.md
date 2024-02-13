@@ -624,39 +624,117 @@ kubectl scale deployment ch07-app-deploy --replicas=5
 
 # Chapter 8 Managing Kubernetes Clusters
 
-## Viewing the Status of a Kubernetes Cluster 176
+## Viewing the Status of a Kubernetes Cluster
 
-### Viewing the Status of Kubernetes Clusters Using Cloud Console 176
+### Viewing the Status of Kubernetes Clusters Using Cloud Console
 
-### Viewing the Status of Kubernetes Clusters Using Cloud SDK and Cloud Shell 184
+- List of Clusters in Kubernates Engine
+- Click the name of a cluster to display its details
+    - Cluster (configuration)
+    - Add-ons
+    - Permissions
+- Details about node pools in the cluster
+    - Details (Node pools)
+    - Storage
+    - Nodes
+        - Pods
+        - Pod status
+        - Containers
+        - Details of Container
 
-## Adding, Modifying, and Removing Nodes 190
+### Viewing the Status of Kubernetes Clusters Using Cloud SDK and Cloud Shell
 
-### Adding, Modifying, and Removing Nodes with Cloud Console 190
+```
+gcloud container clusters list
 
-### Adding, Modifying, and Removing with Cloud SDK and Cloud Shell 191
+gcloud container clusters describe --zone us-central1-a standard-cluster-1
 
-### Adding, Modifying, and Removing Pods 192
+```
+
+To list information about nodes and pods, use the kubectl command.
+
+```
+kubectl describe nodes
+kubectl describe pods
+
+```
+
+## Adding, Modifying, and Removing Nodes
+
+### Adding, Modifying, and Removing Nodes with Cloud Console
+
+```
+gcloud container clusters resize
+
+gcloud container clusters update
+
+```
+
+### Adding, Modifying, and Removing with Cloud SDK and Cloud Shell
+
+### Adding, Modifying, and Removing Pods
 
 ### Adding, Modifying, and Removing Pods with Cloud Console 192
 
 ### Adding, Modifying, and Removing Pods with Cloud SDK and Cloud Shell 195
 
-### Adding, Modifying, and Removing Services 196
+### Adding, Modifying, and Removing Services
 
-### Adding, Modifying, and Removing Services with Cloud Console 196
+Services are added through deployments. That is under workload
 
-### Adding, Modifying, and Removing Services with Cloud SDK and Cloud Shell 198
+### Adding, Modifying, and Removing Services with Cloud Console
 
-### Viewing the Image Repository and Image Details 199
+### Adding, Modifying, and Removing Services with Cloud SDK and Cloud Shell
 
-### Viewing the Image Repository and Image Details with Cloud Console 199
+### Viewing the Image Repository and Image Details
+
+### Viewing the Image Repository and Image Details with Cloud Console
 
 ### Viewing the Image Repository and Image Details with Cloud SDK and Cloud Shell
 
 # Chapter 9 Computing with App Engine
 
+## App Engine Components
+- Application
+- Service
+- Version
+- Instance
+
+## Deploying an App Engine Application
+
+### Deploying an App Using Cloud Shell and SDK
+
+## Scaling App Engine Applications
+
+## Splitting Traffic between App Engine Versions
+
 # Chapter 10 Computing with Cloud Functions
+
+## Introduction to Cloud Functions
+
+### Events, Triggers, and Functions
+
+### Runtime Environments
+
+## Cloud Functions Receiving Events from Cloud Storage
+
+### Deploying a Cloud Function for Cloud Storage Events
+
+### Using Cloud Console
+
+### Deploying a Cloud Function for Cloud Storage Events
+
+### Using gcloud Commands
+
+## Cloud Functions Receiving Events from Pub/Sub
+
+### Deploying a Cloud Function for Cloud Pub/Sub Events
+
+### Using Cloud Console
+
+### Deploying a Cloud Function for Cloud Pub/Sub Events
+
+### Using gcloud Commands
 
 # Chapter 11 Planning Storage in the Cloud
 

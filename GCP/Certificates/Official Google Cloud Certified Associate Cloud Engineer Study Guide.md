@@ -695,6 +695,7 @@ Services are added through deployments. That is under workload
 # Chapter 9 Computing with App Engine
 
 ## App Engine Components
+
 - Application
 - Service
 - Version
@@ -704,9 +705,35 @@ Services are added through deployments. That is under workload
 
 ### Deploying an App Using Cloud Shell and SDK
 
+```
+gcloud app deploy app.yml
+
+```
+
+- The project URL is the project name followed by .appspot.com
+- --no-promote parameter to deploy the app without routing traffic to it
+- Stop service version: gcloud app versions stop v1 v2
+
 ## Scaling App Engine Applications
 
+- target_cpu_utilization
+- target_throughput_utilization
+- max_concurrent_requests
+- max_instances
+- min_instances
+- max_pending_latency
+- min_pending_latency
+
 ## Splitting Traffic between App Engine Versions
+
+```
+gcloud app services set-traffic
+
+    --migrate
+    --splits v1=.4,v2=.6
+    --split-by
+
+```
 
 # Chapter 10 Computing with Cloud Functions
 

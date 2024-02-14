@@ -741,23 +741,42 @@ gcloud app services set-traffic
 
 ### Events, Triggers, and Functions
 
+- Event Categories:
+    - Cloud Storage
+    - Cloud Pub/Sub
+    - HTTP
+    - Firebase
+    - Stackdriver Logging
+
 ### Runtime Environments
 
 ## Cloud Functions Receiving Events from Cloud Storage
 
 ### Deploying a Cloud Function for Cloud Storage Events
 
-### Using Cloud Console
+Create Function:
 
-### Deploying a Cloud Function for Cloud Storage Events
+- Function name
+- Memory allocated for the function
+- Trigger
+- Event type
+- Source of the function code
+- Runtime
+- Source code
+- Python, Go or Node.js function to execute
+
+### Using Cloud Console
 
 ### Using gcloud Commands
 
+```
+gcloud functions deploy/delete
+
+```
+
 ## Cloud Functions Receiving Events from Pub/Sub
 
-### Deploying a Cloud Function for Cloud Pub/Sub Events
-
-### Using Cloud Console
+### Deploying a Cloud Function for Cloud Pub/Sub Events Using Cloud Console
 
 ### Deploying a Cloud Function for Cloud Pub/Sub Events
 
@@ -765,9 +784,77 @@ gcloud app services set-traffic
 
 # Chapter 11 Planning Storage in the Cloud
 
+## Types of Storage Systems
+
+### Cache
+
+- MemoryStore: a managed Redis service
+- 1GB - 300GB
+- HA by failover replicas
+- Create an instance
+
+### Persistent Storage
+
+- Be attached to VMs of GCE or GKE
+- Data on persistent disks continues to exist after VMs are shut down or terminated.
+- Features of Persistent Disks
+- Configuring Persistent Disks
+
+### Object Storage
+
+### Storage Types When Planning a Storage Solution
+
+## Storage Data Models
+
+### Object: Cloud Storage
+
+### Relational: Cloud SQL, Cloud Spanner, and BigQuery
+
+- Configuring Cloud SQL
+- Configuring Cloud Spanner
+- Configuring BigQuery
+
+### NoSQL: Datastore, Cloud Firestore, and Bigtable
+
+- Cloud Datastore
+- Cloud Firestore
+- Cloud Bigtable
+
+## Choosing a Storage Solution: Guidelines to Consider
+
+- Read and Write Patterns
+- Consistency
+- Transaction Support
+- Cost
+- Latency
+
 # Chapter 12 Deploying Storage in Google Cloud Platform
 
 # Chapter 13 Loading Data into Storage
+
+## Deploying and Managing Cloud SQL
+
+Creating and Connecting to a MySQL Instance 276
+Creating a Database, Loading Data, and Querying Data 278
+Backing Up MySQL in Cloud SQL 279
+
+## Deploying and Managing Datastore 283
+
+Adding Data to a Datastore Database 283
+Backing Up Datastore 284
+
+## Deploying and Managing BigQuery 285
+
+Estimating the Cost of Queries in BigQuery 285
+Viewing Jobs in BigQuery 286
+
+## Deploying and Managing Cloud Spanner 288
+
+## Deploying and Managing Cloud Pub/Sub 292
+
+## Deploying and Managing Cloud Bigtable 295
+
+## Deploying and Managing Cloud Dataproc
 
 # Chapter 14 Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 

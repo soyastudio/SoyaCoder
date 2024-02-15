@@ -796,11 +796,33 @@ gcloud functions deploy/delete
 ### Persistent Storage
 
 - Be attached to VMs of GCE or GKE
+- Block storage device and can create file system
 - Data on persistent disks continues to exist after VMs are shut down or terminated.
+- Network accessible
 - Features of Persistent Disks
+    - SSD and HDD
+    - Persistent disks can be mounted on multiple VMs to provide multireader storage.
+    - The size of persistent disks can be increased while mounted to a VM.
+    - Persistent disks automatically encrypt data on the disk
+    - Zonal or Regional
 - Configuring Persistent Disks
 
 ### Object Storage
+
+- Cloud Storage is an object storage system, which means files that are stored in the system are treated as atomic units
+- Cloud Storage does not support concurrency and locking.
+- Buckets are resources within a project
+- Buckets share global namespace
+- Cloud Storage does not provide a file system
+- Cloud Storage provides four different classes of object storage:
+    - mult-regional
+    - regional
+    - nearline
+    - coldline
+- Versioning and Object Lifecycle Management
+    - Lifecycle management policies are applied to buckets and affect all objects in the bucket.
+    - Multiregional and regional storage objects can be changed to nearline or coldline
+    - Nearline can be changed only to coldline.
 
 ### Storage Types When Planning a Storage Solution
 
@@ -813,12 +835,26 @@ gcloud functions deploy/delete
 - Configuring Cloud SQL
 - Configuring Cloud Spanner
 - Configuring BigQuery
+    - BigQuery does not require you to configure instances.
+    - The first task for using BigQuery is to create a data set to hold data
+    - Not all regions support BigQuery
 
 ### NoSQL: Datastore, Cloud Firestore, and Bigtable
 
 - Cloud Datastore
+    - Datastore is a document database
+    - Datastore is a schemaless database
+    - Datastore is a managed database.Datastore automatically partitions data and scales up or down as demand warrants.
+    - support for transactions and indexes to improve query performance
 - Cloud Firestore
+    - Cloud Firestore is a managed NoSQL database that uses the document data model.
+    - Cloud Firestore is that it is designed for storing, synchronizing, and querying data across distributed
+      applications, like mobile apps.
+    - Cloud Firestore supports transactions and provides multiregional replication
 - Cloud Bigtable
+    - It is a wide-column database
+    - Bigtable is designed for petabyte-scale databases
+    - Bigtable runs in clusters and scales horizontally.
 
 ## Choosing a Storage Solution: Guidelines to Consider
 
@@ -830,23 +866,27 @@ gcloud functions deploy/delete
 
 # Chapter 12 Deploying Storage in Google Cloud Platform
 
-# Chapter 13 Loading Data into Storage
-
 ## Deploying and Managing Cloud SQL
 
-Creating and Connecting to a MySQL Instance 276
-Creating a Database, Loading Data, and Querying Data 278
-Backing Up MySQL in Cloud SQL 279
+### Creating and Connecting to a MySQL Instance
 
-## Deploying and Managing Datastore 283
+### Creating a Database, Loading Data, and Querying Data
 
-Adding Data to a Datastore Database 283
-Backing Up Datastore 284
+### Backing Up MySQL in Cloud SQL
 
-## Deploying and Managing BigQuery 285
+## Deploying and Managing Datastore
 
-Estimating the Cost of Queries in BigQuery 285
-Viewing Jobs in BigQuery 286
+### Adding Data to a Datastore Database
+
+### Backing Up Datastore
+
+To back up a Datastore database, you need to create a Cloud Storage bucket to hold a backup file and grant appropriate
+permissions to users performing backup.
+
+## Deploying and Managing BigQuery
+
+### Estimating the Cost of Queries in BigQuery 
+### Viewing Jobs in BigQuery
 
 ## Deploying and Managing Cloud Spanner 288
 
@@ -855,6 +895,8 @@ Viewing Jobs in BigQuery 286
 ## Deploying and Managing Cloud Bigtable 295
 
 ## Deploying and Managing Cloud Dataproc
+
+# Chapter 13 Loading Data into Storage
 
 # Chapter 14 Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 

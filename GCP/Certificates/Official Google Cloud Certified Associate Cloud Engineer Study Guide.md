@@ -1029,7 +1029,6 @@ gcloud compute forwarding-rule
 
 gcloud compute vpn-tunnels
 
-
 ```
 
 # Chapter 15 Networking in the Cloud: DNS, Load Balancing, and IP Addressing

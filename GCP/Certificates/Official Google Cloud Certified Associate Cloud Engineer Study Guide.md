@@ -885,18 +885,81 @@ permissions to users performing backup.
 
 ## Deploying and Managing BigQuery
 
-### Estimating the Cost of Queries in BigQuery 
+- BigQuery is a fully managed database service
+- Create DataSet
+- BigQuery Jobs
+
+### Estimating the Cost of Queries in BigQuery
+
 ### Viewing Jobs in BigQuery
 
-## Deploying and Managing Cloud Spanner 288
+## Deploying and Managing Cloud Spanner
 
-## Deploying and Managing Cloud Pub/Sub 292
+Cloud Spanner is a managed database service, so you will not have to patch, backup, or perform other basic data
+administration tasks.
 
-## Deploying and Managing Cloud Bigtable 295
+## Deploying and Managing Cloud Pub/Sub
+
+## Deploying and Managing Cloud Bigtable
+
+- Instance name and ID
+- Instance type: production vs development
+- Storage type: SSD vs HDD
+- Clusters: ID, Location, Region, Zone
+- CLI: cbt
 
 ## Deploying and Managing Cloud Dataproc
 
+Cluster Settings: YARN
+
+## Managing Cloud Storage
+
 # Chapter 13 Loading Data into Storage
+
+## Loading and Moving Data to Cloud Storage
+
+### Loading and Moving Data to Cloud Storage Using the Console
+
+### Loading and Moving Data to Cloud Storage Using the Command Line
+```
+gsutil mb gs://[BUCKET_NAME]/
+
+gsutil cp [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+
+gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKET_NAME]/[DESTINATION_OBJECT_NAME]
+
+```
+
+## Importing and Exporting Data
+
+### Importing and Exporting Data: Cloud SQL
+```
+gcloud sql instances describe [INSTANCE_NAME]
+
+gcloud sql export sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[FILE_NAME] --database=[DATABASE_NAME]
+
+gcloud sql import sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]
+
+```
+
+### Importing and Exporting Data: Cloud Datastore
+```
+gcloud datastore export --namespaces="(default)" gs://${BUCKET}
+
+gcloud datastore import gs://${BUCKET}/[PATH]/[FILE].overall_export_metadata
+
+```
+
+### Importing and Exporting Data: BigQuery
+
+
+### Importing and Exporting Data: Cloud Spanner
+
+### Importing and Exporting Data: Cloud Bigtable
+
+### Importing and Exporting Data: Cloud Dataproc
+
+## Streaming Data to Cloud Pub/Sub
 
 # Chapter 14 Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 

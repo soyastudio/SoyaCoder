@@ -921,6 +921,7 @@ Cluster Settings: YARN
 ### Loading and Moving Data to Cloud Storage Using the Console
 
 ### Loading and Moving Data to Cloud Storage Using the Command Line
+
 ```
 gsutil mb gs://[BUCKET_NAME]/
 
@@ -933,6 +934,7 @@ gsutil mv gs://[SOURCE_BUCKET_NAME]/[SOURCE_OBJECT_NAME] gs://[DESTINATION_BUCKE
 ## Importing and Exporting Data
 
 ### Importing and Exporting Data: Cloud SQL
+
 ```
 gcloud sql instances describe [INSTANCE_NAME]
 
@@ -943,6 +945,7 @@ gcloud sql import sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --da
 ```
 
 ### Importing and Exporting Data: Cloud Datastore
+
 ```
 gcloud datastore export --namespaces="(default)" gs://${BUCKET}
 
@@ -951,7 +954,6 @@ gcloud datastore import gs://${BUCKET}/[PATH]/[FILE].overall_export_metadata
 ```
 
 ### Importing and Exporting Data: BigQuery
-
 
 ### Importing and Exporting Data: Cloud Spanner
 
@@ -963,10 +965,153 @@ gcloud datastore import gs://${BUCKET}/[PATH]/[FILE].overall_export_metadata
 
 # Chapter 14 Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 
+## Creating a Virtual Private Cloud with Subnets
+
+### Creating a Virtual Private Cloud with Cloud Console
+
+- Subnet is regional
+- Classless Inter-Domain Routing (CIDR)
+- Firewall rules:
+    - Types: ingress or egress
+    - Action: allow or deny
+    - Priority
+- Dynamic routing: regional or global
+- DNS Server policy
+
+### Creating a Virtual Private Cloud with gcloud
+
+```
+gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto/custom
+
+```
+
+### Creating a Shared Virtual Private Cloud Using gcloud
+
+## Deploying Compute Engine with a Custom Network
+
+## Creating Firewall Rules for a Virtual Private Cloud
+
+### Structure of Firewall Rules
+
+- Direction: Either ingress or egress
+- Priority:
+- Action: Either allow or deny
+- Target: An instance to which the rule applies.
+- Source/destination:
+- Protocol and port
+- Enforcement status:
+
+Default rule:
+
+- Incoming traffic from any VM instance on the same network
+- Incoming TCP traffic on port 22, allowing SSH
+- Incoming TCP traffic on port 3389, allowing Microsoft Remote Desktop Protocol(RDP)
+- Incoming Internet Control Message Protocol (ICMP) from any source on the network
+- The default rules all have priority 65534.
+
+### Creating Firewall Rules Using Cloud Console
+
+### Creating Firewall Rules Using gcloud
+
+## Creating a Virtual Private Network
+
+### Creating a Virtual Private Network Using Cloud Console
+
+- Under Hybrid Connectivity
+- Google Compute Engine VPN gateway
+- Tunnels
+
+### Creating a Virtual Private Network Using gcloud
+```
+gcloud compute target-vpn-gateways
+
+gcloud compute forwarding-rule
+
+gcloud compute vpn-tunnels
+
+
+```
+
 # Chapter 15 Networking in the Cloud: DNS, Load Balancing, and IP Addressing
+
+## Configuring Cloud DNS
+
+### Creating DNS Managed Zones Using Cloud Console
+
+### Creating a DNS Managed Zones Using gcloud
+
+## Configuring Load Balancers
+
+### Types of Load Balancers
+
+### Configuring Load Balancers using Cloud Console
+
+### Configuring Load Balancers using gcloud
+
+## Managing IP Addresses
+
+### Expanding CIDR Blocks
+
+### Reserving IP Addresses
 
 # Chapter 16 Deploying Applications with Cloud Launcher and Deployment Manager
 
+## Deploying a Solution Using Cloud Launcher
+
+### Browsing Cloud Launcher and Viewing Solutions
+
+### Deploying Cloud Launcher Solutions
+
+## Deploying an Application Using Deployment Manager
+
+### Deployment Manager Configuration Files
+
+### Deployment Manager Template Files
+
+### Launching a Deployment Manager Template
+
 # Chapter 17 Configuring Access and Security
 
+## Managing Identity and Access Management
+
+### Viewing Account Identity and Access Management
+
+### Assignments
+
+### Assigning Identity and Access Management Roles to Accounts and Groups
+
+### Defining Custom Identity and Access Management Roles
+
+## Managing Service Accounts
+
+### Managing Service Accounts with Scopes
+
+### Assigning a Service Account to a Virtual Machine Instance
+
+### Viewing Audit Logs
+
 # Chapter 18 Monitoring, Logging, and Cost Estimating
+
+## Monitoring with Stackdriver
+
+### Creating Alerts Based on Resource Metrics
+
+### Creating Custom Metrics
+
+## Logging with Stackdriver
+
+### Configuring Log Sinks
+
+### Viewing and Filtering Logs
+
+### Viewing Message Details
+
+## Using Cloud Diagnostics
+
+### Overview of Cloud Trace
+
+### Overview of Cloud Debug
+
+### Viewing Google Cloud Platform Status
+
+## Using the Pricing Calculator

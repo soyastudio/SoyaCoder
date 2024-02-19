@@ -1,4 +1,4 @@
-# Chapter 1 Introduction to the Google Professional Cloud Architect Exam
+# Chapter 1 Introduction to the Google Professional Cloud Architect Exam (40)
 
 ## Designing a solution infrastructure that meets business requirements.
 
@@ -745,12 +745,13 @@ Projects incur technical debt for many reasons, including the following:
     - Understand the time and cost of migrating data to Cloud Storage
     - Plan the order in which data will be transferred
     - Determine the method to transfer the data
-    
+
 - Migrating Relational Data
 
 ## Licensing Mapping
 
 ## Network and Management Planning
+
 - Virtual Private Clouds
 - Network Access Controls
 - Scaling

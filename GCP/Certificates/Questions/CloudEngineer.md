@@ -1,3 +1,5 @@
+# Chapter 1.
+
 ### 1.5
 
 All block storage systems use what block size?
@@ -18,6 +20,8 @@ of traffic between subnets?
 3. Firewall
 4. IP address table
 
+# Chapter 2.
+
 ### 2.3
 
 Why would an API developer want to use the Apigee API platform?
@@ -27,6 +31,13 @@ Why would an API developer want to use the Apigee API platform?
 3. Version control of code
 4. A and B
 5. All of the above
+
+# Chapter 3.
+
+- How to create custom image
+- VMs are reliable in GCP
+- Single VM is not scalable in CPU, Memory, so introduce instance group for scaling.
+- Permission: role and member
 
 ### 3.4
 
@@ -155,6 +166,57 @@ What can be the basis for scaling up an instance group?
 2. Disk usage and CPU utilization only
 3. Network latency, load balancing capacity, and CPU utilization
 4. Disk usage and operating system updates only
+
+### 9.2
+
+You’ve just released an application running in App Engine Standard. You notice that there are peak demand periods in
+which you need up to 12 instances, but most of the time 5 instances are sufficient. What is the best way to ensure that
+you have enough instances to meet demand without spending more than you have to?
+
+1. Configure your app for autoscaling and specify max instances of 12 and min instances of 5.
+2. Configure your app for basic scaling and specify max instances of 12 and min instances of 5.
+3. Create a cron job to add instances just prior to peak periods and remove instances after the peak period is over.
+4. Configure your app for instance detection and do not specify a max or minimum number of instances.
+
+### 9.6
+
+You have several App Engine apps you plan to deploy from your project. What have you failed to account for in this
+design?
+
+1. App Engine only supports one app per project.
+2. App Engine only supports two apps per project.
+3. App Engine apps exist outside of projects.
+4. Nothing, this is a common pattern.
+
+### 9.10
+
+What parameters can be configured with basic scaling?
+
+1. max_instances and min_instances
+2. idle_timeout and min_instances
+3. idle_timeout and max_instances
+4. idle_timeout and target_throughput_utilization
+
+### 9.15
+
+What parameter to gcloud app services set-traffic is used to specify the method to use when splitting traffic?
+
+1. ––split-traffic
+2. ––split-by
+3. ––traffic-split
+4. ––split-method
+
+### 10.1
+
+A product manager is proposing a new application that will require several backend services, three business logic
+services, and access to relational databases. Each service will provide a single function, and it will require several
+of these services to complete a business task. Service execution time is dependent on the size of input and is expected
+to take up to 30 minutes in some cases. Which GCP product is a good serverless option for running this related service?
+
+1. Cloud Functions
+2. Compute Engine
+3. App Engine
+4. Cloud Storage
 
 ### 18.2
 

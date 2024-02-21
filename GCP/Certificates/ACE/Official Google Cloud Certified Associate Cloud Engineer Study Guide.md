@@ -827,6 +827,7 @@ gcloud functions deploy/delete
     - Lifecycle management policies are applied to buckets and affect all objects in the bucket.
     - Multiregional and regional storage objects can be changed to nearline or coldline
     - Nearline can be changed only to coldline.
+    - Object Lifecycle Rule: 
 
 ### Storage Types When Planning a Storage Solution
 

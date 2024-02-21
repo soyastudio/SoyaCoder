@@ -218,6 +218,150 @@ to take up to 30 minutes in some cases. Which GCP product is a good serverless o
 3. App Engine
 4. Cloud Storage
 
+### 11.1
+
+You are tasked with defining lifecycle configurations on buckets in Cloud Storage. You
+need to consider all possible options for transitioning from one storage class to another. All
+of the following transitions are allowed except for one. Which one is that?
+
+1. Nearline to coldline
+2. Regional to nearline
+3. Multiregional to coldline
+4. Regional to multiregional
+
+### 11.6
+
+Which of the following statements about Cloud Storage is not true?
+
+1. Cloud Storage buckets can have retention periods.
+2. Lifecycle configurations can be used to change storage class from regional to multiregional.
+3. Cloud Storage does not provide block-level access to data within files stored in buckets.
+4. Cloud Storage is designed for high durability.
+
+### 11.7
+
+Once a bucket has its storage class set to coldline, what are other storage classes it can
+transition to?
+
+1. Regional
+2. Nearline
+3. Multi-regional
+4. None of the above
+
+### 11.20
+
+A colleague is wondering why some storage charges are so high. They explain that they
+have moved all their storage to nearline and coldline storage. They routinely access most of
+the object on any given day. What is one possible reason the storage costs are higher than
+expected?
+
+1. Nearline and coldline incur access charges.
+2. Transfer charges.
+3. Multiregional coldline is more expensive.
+4. Regional coldline is more expensive.
+
+### 12.9
+
+You want to estimate the cost of running a BigQuery query. What two services within
+Google Cloud Platform will you need to use?
+
+1. BigQuery and Billing
+2. Billing and Pricing Calculator
+3. BigQuery and Pricing Calculator
+4. Billing and Pricing Calculator
+
+### 13.8
+
+As required by your company’s policy, you need to back up your Datastore database at least
+once per day. An auditor is questioning whether or not Datastore export is sufficient. You
+explain that the Datastore export command produces what outputs?
+
+1. A single entity file
+2. A metadata file
+3. A metadata file and a folder with the data
+4. A metadata file, an entity file, and a folder with the data
+
+### 13.11
+
+You have received a large data set from an Internet of Things (IoT) system. You want to use
+BigQuery to analyze the data. What command-line command would you use to make data
+available for analysis in BigQuery?
+
+1. bq load ––autodetect ––source_format=[FORMAT] [DATASET].[TABLE]
+   [PATH_TO_SOURCE]
+2. bq import ––autodetect ––source_format=[FORMAT] [DATASET].[TABLE]
+   [PATH_TO_SOURCE]
+3. gloud BigQuery load ––autodetect ––source_format=[FORMAT] [DATASET].
+   [TABLE] [PATH_TO_SOURCE]
+4. gcloud BigQuery load ––autodetect ––source_format=[FORMAT] [DATASET].
+   [TABLE] [PATH_TO_SOURCE]
+
+### 13.14
+
+You have just exported from a Dataproc cluster. What have you exported?
+
+1. Data in Spark DataFrames
+2. All tables in the Spark database
+3. Configuration data about the cluster
+4. All tables in the Hadoop database
+
+### 13.17
+
+Which of the following commands will create a subscription on the topic
+ace-exam-topic1?
+
+1. gcloud pubsub create ––topic=ace-exam-topic1 ace-exam-sub1
+2. gcloud pubsub subscriptions create ––topic=ace-exam-topic1
+3. gcloud pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
+4. gsutil pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
+
+### 17.6
+
+You are working in the form displayed after clicking the Add link in the IAM form of IAM
+& Admin in Cloud Console. There is a parameter called New Members. What items would
+you enter in that parameter?
+
+1. Individual users only
+2. Individual users or groups
+3. Roles or individual users
+4. Roles or groups
+
+### 17.7
+
+You have been assigned the App Engine Deployer role. What operations can you perform?
+
+1. Write new versions of an application only
+2. Read application configuration and settings only
+3. Read application configuration and settings and write new configurations
+4. Read application configuration and settings and write new versions
+
+### 17.10
+
+What launch stages are available when creating custom roles?
+
+1. Alpha and beta only
+2. General availability only
+3. Disabled only
+4. Alpha, beta, general availability, and disabled
+
+### 17.13
+
+A scope is identified using what kind of identifier?
+
+1. A randomly generated ID
+2. A URL beginning with https://www.googleserviceaccounts/
+3. A URL beginning with https://www.googleapis.com/auth/
+4. A URL beginning with https://www.googleapis.com/auth/PROJECT_ID]
+
+### 17.16
+
+What gcloud command would you use to set scopes?
+
+1. gcloud compute instances set-scopes
+2. gcloud compute instances set-service-account
+3. gcloud compute service-accounts set-scopes
+4. gcloud compute service-accounts define-scopes
+
 ### 18.2
 
 You have just created a virtual machine, and you’d like Stackdriver Monitoring to alert you via email whenever the CPU

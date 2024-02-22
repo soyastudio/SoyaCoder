@@ -167,6 +167,79 @@ What can be the basis for scaling up an instance group?
 3. Network latency, load balancing capacity, and CPU utilization
 4. Disk usage and operating system updates only
 
+### 7.3
+
+What is a pod in Kubernetes?
+
+1. A set of containers
+2. Application code deployed in a Kubernetes cluster
+3. A single instance of a running process in a cluster
+4. A controller that manages communication between clients and Kubernetes services
+
+### 7.5
+
+You have noticed that an application’s performance has degraded significantly. You have
+recently made some configuration changes to resources in your Kubernetes cluster and
+suspect that those changes have alerted the number of pods running in the cluster. Where
+would you look for details on the number of pods that should be running?
+
+1. Deployments
+2. Stackdriver
+3. ReplicaSet
+4. Jobs
+
+### 7.6
+
+You are deploying a high availability application in Kubernetes Engine. You want to maintain
+availability even if there is a major network outage in a data center. What feature of
+Kubernetes Engine would you employ?
+
+1. Multiple instance groups
+2. Multizone/region cluster
+3. Regional deployments
+4. Load balancing
+
+### 7.7
+
+You want to write a script to deploy a Kubernetes cluster with GPUs. You have deployed
+clusters before, but you are not sure about all the required parameters. You need to deploy
+this script as quickly as possible. What is one way to develop this script quickly?
+
+1. Use the GPU template in the Kubernetes Engine cloud console to generate the gcloud
+   command to create the cluster
+2. Search the Web for a script
+3. Review the documentation on gcloud parameters for adding GPUs
+4. Use an existing script and add parameters for attaching GPUs
+
+### 7.8
+
+What gcloud command will create a cluster named ch07-cluster-1 with four nodes?
+
+1. gcloud beta container clusters create ch07-cluster-1 --num-nodes=4
+2. gcloud container beta clusters create ch07-cluster-1 --num-nodes=4
+3. gcloud container clusters create ch07-cluster-1 --num-nodes=4
+4. gcloud beta container clusters create ch07-cluster-1 4
+
+### 7.16
+
+When creating an alerting policy, what can be specified?
+
+1. Conditions, notifications, and time to live
+2. Conditions, notifications, and documentation
+3. Conditions only
+4. Conditions, documentation, and time to live
+
+### 7.19
+
+You are attempting to execute commands to initiate a deployment on a Kubernetes cluster.
+The commands are not having any effect. You suspect that a Kubernetes component is not
+functioning correctly. What component could be the problem?
+
+1. The Kubernetes API
+2. A StatefulSet
+3. Cloud SDK gcloud commands
+4. ReplicaSet
+
 ### 9.2
 
 You’ve just released an application running in App Engine Standard. You notice that there are peak demand periods in

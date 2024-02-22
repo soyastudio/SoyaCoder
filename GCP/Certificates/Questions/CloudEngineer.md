@@ -178,10 +178,9 @@ What is a pod in Kubernetes?
 
 ### 7.5
 
-You have noticed that an application’s performance has degraded significantly. You have
-recently made some configuration changes to resources in your Kubernetes cluster and
-suspect that those changes have alerted the number of pods running in the cluster. Where
-would you look for details on the number of pods that should be running?
+You have noticed that an application’s performance has degraded significantly. You have recently made some configuration
+changes to resources in your Kubernetes cluster and suspect that those changes have alerted the number of pods running
+in the cluster. Where would you look for details on the number of pods that should be running?
 
 1. Deployments
 2. Stackdriver
@@ -190,9 +189,8 @@ would you look for details on the number of pods that should be running?
 
 ### 7.6
 
-You are deploying a high availability application in Kubernetes Engine. You want to maintain
-availability even if there is a major network outage in a data center. What feature of
-Kubernetes Engine would you employ?
+You are deploying a high availability application in Kubernetes Engine. You want to maintain availability even if there
+is a major network outage in a data center. What feature of Kubernetes Engine would you employ?
 
 1. Multiple instance groups
 2. Multizone/region cluster
@@ -201,12 +199,11 @@ Kubernetes Engine would you employ?
 
 ### 7.7
 
-You want to write a script to deploy a Kubernetes cluster with GPUs. You have deployed
-clusters before, but you are not sure about all the required parameters. You need to deploy
-this script as quickly as possible. What is one way to develop this script quickly?
+You want to write a script to deploy a Kubernetes cluster with GPUs. You have deployed clusters before, but you are not
+sure about all the required parameters. You need to deploy this script as quickly as possible. What is one way to
+develop this script quickly?
 
-1. Use the GPU template in the Kubernetes Engine cloud console to generate the gcloud
-   command to create the cluster
+1. Use the GPU template in the Kubernetes Engine cloud console to generate the gcloud command to create the cluster
 2. Search the Web for a script
 3. Review the documentation on gcloud parameters for adding GPUs
 4. Use an existing script and add parameters for attaching GPUs
@@ -231,9 +228,8 @@ When creating an alerting policy, what can be specified?
 
 ### 7.19
 
-You are attempting to execute commands to initiate a deployment on a Kubernetes cluster.
-The commands are not having any effect. You suspect that a Kubernetes component is not
-functioning correctly. What component could be the problem?
+You are attempting to execute commands to initiate a deployment on a Kubernetes cluster. The commands are not having any
+effect. You suspect that a Kubernetes component is not functioning correctly. What component could be the problem?
 
 1. The Kubernetes API
 2. A StatefulSet
@@ -293,9 +289,9 @@ to take up to 30 minutes in some cases. Which GCP product is a good serverless o
 
 ### 11.1
 
-You are tasked with defining lifecycle configurations on buckets in Cloud Storage. You
-need to consider all possible options for transitioning from one storage class to another. All
-of the following transitions are allowed except for one. Which one is that?
+You are tasked with defining lifecycle configurations on buckets in Cloud Storage. You need to consider all possible
+options for transitioning from one storage class to another. All of the following transitions are allowed except for
+one. Which one is that?
 
 1. Nearline to coldline
 2. Regional to nearline
@@ -313,8 +309,7 @@ Which of the following statements about Cloud Storage is not true?
 
 ### 11.7
 
-Once a bucket has its storage class set to coldline, what are other storage classes it can
-transition to?
+Once a bucket has its storage class set to coldline, what are other storage classes it can transition to?
 
 1. Regional
 2. Nearline
@@ -323,10 +318,9 @@ transition to?
 
 ### 11.20
 
-A colleague is wondering why some storage charges are so high. They explain that they
-have moved all their storage to nearline and coldline storage. They routinely access most of
-the object on any given day. What is one possible reason the storage costs are higher than
-expected?
+A colleague is wondering why some storage charges are so high. They explain that they have moved all their storage to
+nearline and coldline storage. They routinely access most of the object on any given day. What is one possible reason
+the storage costs are higher than expected?
 
 1. Nearline and coldline incur access charges.
 2. Transfer charges.
@@ -335,8 +329,8 @@ expected?
 
 ### 12.9
 
-You want to estimate the cost of running a BigQuery query. What two services within
-Google Cloud Platform will you need to use?
+You want to estimate the cost of running a BigQuery query. What two services within Google Cloud Platform will you need
+to use?
 
 1. BigQuery and Billing
 2. Billing and Pricing Calculator
@@ -345,9 +339,9 @@ Google Cloud Platform will you need to use?
 
 ### 13.8
 
-As required by your company’s policy, you need to back up your Datastore database at least
-once per day. An auditor is questioning whether or not Datastore export is sufficient. You
-explain that the Datastore export command produces what outputs?
+As required by your company’s policy, you need to back up your Datastore database at least once per day. An auditor is
+questioning whether or not Datastore export is sufficient. You explain that the Datastore export command produces what
+outputs?
 
 1. A single entity file
 2. A metadata file
@@ -356,9 +350,8 @@ explain that the Datastore export command produces what outputs?
 
 ### 13.11
 
-You have received a large data set from an Internet of Things (IoT) system. You want to use
-BigQuery to analyze the data. What command-line command would you use to make data
-available for analysis in BigQuery?
+You have received a large data set from an Internet of Things (IoT) system. You want to use BigQuery to analyze the
+data. What command-line command would you use to make data available for analysis in BigQuery?
 
 1. bq load ––autodetect ––source_format=[FORMAT] [DATASET].[TABLE]
    [PATH_TO_SOURCE]
@@ -380,19 +373,53 @@ You have just exported from a Dataproc cluster. What have you exported?
 
 ### 13.17
 
-Which of the following commands will create a subscription on the topic
-ace-exam-topic1?
+Which of the following commands will create a subscription on the topic ace-exam-topic1?
 
 1. gcloud pubsub create ––topic=ace-exam-topic1 ace-exam-sub1
 2. gcloud pubsub subscriptions create ––topic=ace-exam-topic1
 3. gcloud pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 4. gsutil pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 
+### 16.1
+
+What are the categories of Cloud Launcher solutions?
+
+1. Data sets only
+2. Operating systems only
+3. Developer tools and operating systems only
+4. Data sets, operating systems, and developer tools
+
+### 16.3
+
+Where do you navigate to launch a Cloud Launcher solution?
+
+1. Overview page of the solution
+2. Main Cloud Launcher page
+3. Network Services
+4. None of the above
+
+### 16.15
+
+What command launches a deployment?
+
+1. gcloud deployment-manager deployments create
+2. gcloud cloud-launcher deployments create
+3. gcloud deployment-manager deployments launch
+4. gcloud cloud-launcher deployments launch
+
+### 16.20
+
+You are deploying a Cloud Launcher application that includes a LAMP stack. What software will this deploy?
+
+1. Apache server and Linux only
+2. Linux only
+3. MySQL and Apache only
+4. Apache, MySQL, Linux, and PHP
+
 ### 17.6
 
-You are working in the form displayed after clicking the Add link in the IAM form of IAM
-& Admin in Cloud Console. There is a parameter called New Members. What items would
-you enter in that parameter?
+You are working in the form displayed after clicking the Add link in the IAM form of IAM & Admin in Cloud Console. There
+is a parameter called New Members. What items would you enter in that parameter?
 
 1. Individual users only
 2. Individual users or groups

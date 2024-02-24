@@ -375,11 +375,11 @@ on the values sent, Cloud Functions could trigger an alert or start processing d
 - Networking
     - Network tag
     - Network interfaces
-- Sole Tenancy: for VM used as server 
-  - Name
-  - Region/zone
-  - Node template
-  - Number of nodes
+- Sole Tenancy: for VM used as server
+    - Name
+    - Region/zone
+    - Node template
+    - Number of nodes
 
 ## Creating and Configuring Virtual Machines with Cloud SDK
 
@@ -827,7 +827,7 @@ gcloud functions deploy/delete
     - Lifecycle management policies are applied to buckets and affect all objects in the bucket.
     - Multiregional and regional storage objects can be changed to nearline or coldline
     - Nearline can be changed only to coldline.
-    - Object Lifecycle Rule: 
+    - Object Lifecycle Rule:
 
 ### Storage Types When Planning a Storage Solution
 
@@ -1039,25 +1039,108 @@ gcloud compute vpn-tunnels
 
 # Chapter 15 Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 
+- Cloud DNS vs Public DNS
+- DNS Zone:
+- GCP load balance:
+    - HTTP(S)
+    - SSL Proxy
+    - TCP Proxy
+    - Network TCP/UDP
+    - Internal TCP/ UDP Network
+
 ## Configuring Cloud DNS
+
+- Managed Zone (A DNS zone contains DNS records associated with a DNS name suffix):
+- "A" record and "AAAA" record
+- CNAME record: alias
 
 ### Creating DNS Managed Zones Using Cloud Console
 
+- Zone type:
+    - public: Internet
+    - private: GCP resources such as VMs and lord balancer
+- DNSSEC
+- Private DNS zone need set network
+- Zone details set:
+    - NS: name server record
+    - SOA: start of authority record
+    - "A" record
+    - CNAME record
+    - TTL: time to live
+
 ### Creating a DNS Managed Zones Using gcloud
+
+```
+gcloud beta dns managed-zones create
+
+gcloud dns record-sets transaction start/add/execute
+
+
+```
 
 ## Configuring Load Balancers
 
 ### Types of Load Balancers
 
+Global and Regional load balancer:
+
+- Global load balancers:
+    - HTTP(S), which balances HTTP and HTTPS load across a set of backend instances
+    - SSL Proxy, which terminates SSL/TLS connections, which are secure socket layer connections. This type is used for
+      non-HTTPS traffic.
+    - TCP Proxy, which terminates TCP sessions at the load balancer and then forwards traffic to backend servers.
+- Regional load balancers:
+    - Internal TCP/UDP, which balances TCP/UDP traffic on private networks hosting internal VMs
+    - Network TCP/UDP, which enables balancing based on IP protocol, address, and port. This load balancer is used for
+      SSL and TCP traffic not supported by the SSL Proxy and TCP Proxy load balancers, respectively.
+
+Internal and External load balancer:
+
+- The Internal TCP/UDP load balancer is the only internal load balancer.
+- The HTTP(S), SSL Proxy, TCP Proxy, and Network TCP/UDP load balancers are all external.
+
+Traffic type consideration:
+
+- HTTP and HTTPS traffic needs to use external global load balancing
+- TCP traffic can use external global, external regional, or internal regional load balancers.
+- UDP traffic can use either external regional or internal regional load balancing.
+
 ### Configuring Load Balancers using Cloud Console
 
+For TCP:
+
+- TCP ( + TCP proxy + SSL Proxy):
+- Configuring the backend
+- Creating a health check
+- Configuring the frontend
+
 ### Configuring Load Balancers using gcloud
+
+- Create target pools
+- Forward traffic that matches an IP address to the load balancer.
+
+```
+gcloud compute target-pools add-instances ace-exam-pool --instances ig1,ig2
+
+gcloud compute forwarding-rules create ace-exam-lb --port=80 --target-pool ace-exam-pool
+
+```
 
 ## Managing IP Addresses
 
 ### Expanding CIDR Blocks
 
+```
+gcloud compute networks subnets expand-ip-range ace-exam-subnet1 --prefix-length 16
+
+```
+
 ### Reserving IP Addresses
+
+```
+gcloud beta compute addresses create ace-exam-reserved-static1 --region=us-west2 --network-tier=PREMIUM
+
+```
 
 # Chapter 16 Deploying Applications with Cloud Launcher and Deployment Manager
 

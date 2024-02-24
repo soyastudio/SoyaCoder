@@ -380,6 +380,114 @@ Which of the following commands will create a subscription on the topic ace-exam
 3. gcloud pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 4. gsutil pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 
+### 14.6
+
+At what levels of the resource hierarchy can a shared VPC be created?
+
+1. Folders and resources
+2. Organizations and project
+3. Organizations and folders
+4. Folders and subnets
+
+### 14.17
+
+You are using Cloud Console to create a VM that you want to exist in a custom subnet you
+just created. What section of the Create Instance form would you use to specify the custom
+subnet?
+
+1. Networking tab of the Management, Security, Disks, Networking, Sole Tenancy section
+2. Management tab of the Management, Security, Disks, Networking, Sole Tenancy section
+3. Sole Tenancy tab of Management, Security, Disks, Networking, Sole Tenancy
+4. Sole Tenancy tab of Management, Security, Disks, Networking
+
+### 14.13
+
+You are using gcloud to create a firewall rule. Which parameter would you use to specify
+the subnet it should apply to?
+
+1. ––subnet
+2. ––network
+3. ––destination
+4. ––source-ranges
+
+### 14.17
+
+You are using Cloud Console to create a VPN. You want to configure the GCP end of the
+VPN. What section of the Create VPN form would you use?
+
+1. Tunnels
+2. Routing Options
+3. Google Compute Engine VPN
+4. IKE Version
+
+### 14.19
+
+When you create a cloud router, what kind of unique identifier do you need to assign for the
+BGP protocol?
+
+1. IP address
+2. ASN
+3. Dynamic load routing ID
+4. None of the above
+
+### 15.1
+
+What record type is used to specify the IPv4 address of a domain?
+
+1. AAAA
+2. A
+3. NS
+4. SOA
+
+### 15.3
+
+What do the TTL parameters specify in a DNS record?
+
+1. Time a record can exist in a cache before it should be queried again
+2. Time a client has to respond to a request for DNS information
+3. Time allowed to create a CNAME record
+4. Time before a human has to manually verify the information in the DNS record
+
+### 15.6
+
+Which load balancers provide global load balancing?
+
+1. HTTP(S) only
+2. SSL Proxy and TCP Proxy only
+3. HTTP(S), SSL Proxy, and TCP Proxy
+4. Internal TCP/UDP, HTTP(S), SSL Proxy, and TCP Proxy
+
+### 15.15
+
+You have created a subnet called sn1 using 192.168.0.0 with 65,534 addresses. You realize
+that you will not need that many addresses, and you’d like to reduce that number to 254.
+Which of the following commands would you use?
+
+1. gcloud compute networks subnets expand-ip-range sn1 --prefix-length=24
+2. gcloud compute networks subnets expand-ip-range sn1 --prefix-length=-8
+3. gcloud compute networks subnets expand-ip-range sn1 --size=256
+4. There is no command to reduce the number of IP addresses available.
+
+### 15.16
+
+You have created a subnet called sn1 using 192.168.0.0. You want it to have 14 addresses.
+What prefix length would you use?
+
+1. 32
+2. 28
+3. 20
+4. 16
+
+### 15.17
+
+You want all your network traffic to route over the Google network and not traverse the
+public Internet. What level of network service should you choose?
+
+1. Standard
+2. Google-only
+3. Premium
+4. Non-Internet
+
 ### 16.1
 
 What are the categories of Cloud Launcher solutions?

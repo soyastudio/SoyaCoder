@@ -1,4 +1,4 @@
-# Chapter 1 Introduction to the Google Professional Cloud Architect Exam (40)
+# Chapter 1 Introduction to the Google Professional Cloud Architect Exam 
 
 ## Designing a solution infrastructure that meets business requirements.
 

@@ -1,4 +1,4 @@
-# Chapter 1 Introduction to the Google Professional Cloud Architect Exam 
+# Chapter 1 Introduction to the Google Professional Cloud Architect Exam
 
 ## Designing a solution infrastructure that meets business requirements.
 
@@ -239,7 +239,7 @@ Lifecycle conditions can be based on the following:
 
 ### Key Performance Indicators
 
-- Project
+- Project KPIs
 - Operations KPI
 
 ### Return on Investment (ROI)
@@ -248,10 +248,22 @@ Lifecycle conditions can be based on the following:
 
 ## High Availability
 
+- High Availability SLA
+- Failures:
+    - Compensate for hardware failures with
+    - Compensate for software and configuration errors with software engineering and DevOps best practices
+
 ### Compute Availability
 
-- Compute Engine: Hardware Redundancy and Live Migration; Managed Instance Groups; Multiple Regions and Global Load
-  Balancing
+- Compute Engine:
+    - Hardware Redundancy and Live Migration:
+        - Live migration is not available for preemptible VM
+        - VMs with GPUs attached are not available to live migrate.
+    - Managed Instance Groups:
+        - use instance template to create cluster, using load balancing
+        - auto-healing
+    - Multiple Regions and Global Load Balancing
+        - Global Load Balancing: HTTP(S), SSL Proxy, or TCP Proxy
 - Kubernetes Engine:
 - App Engine and Cloud Functions: are fully managed services, focus on application issues and DevOps best practices
 
@@ -262,23 +274,42 @@ Lifecycle conditions can be based on the following:
     - Cloud Filestore
     - Persist Disk
 - Availability of Databases
-    - Self-Managed Database Redundancy: Shared disk; Filesystem replication; Synchronous multi-master replication
-    - Managed Databases:
+    - Self-Managed Database Redundancy:
+        - Shared disk;
+        - Filesystem replication;
+        - Synchronous multi-master replication
+    - Managed Databases
+        - Fully managed and serverless databases: Cloud Datastore and BigQuery
 - Network Availability
-    - Use redundant network connections
+    - Use redundant network connections (between on-premises data center and google data center)
+        - dedicated interconnect
+        - Partner interconnect
     - Use Premium Tier network
-- Application Availability
+        - Premium Network Tier: using google internal network
+        - Standard Network Tier: using public internet
+- Application Availability: Stackdriver for monitoring and diagnosing
 
 ## Scalability
 
 ### Scaling Compute Resources
 
-- Autoscaler for average CPU utilization; HTTP load balancing capacity;
-- Stackdriver for api_request_count; log_entry_count; memory_usage; uptime...
+- Autoscaler for based on:
+    - average CPU utilization
+    - HTTP load balancing capacity
+    - Stackdriver monitoring metrics: (Install Stackdriver agent on VMs)
+        - api_request_count;
+        - log_entry_count;
+        - memory_usage;
+        - uptime
 
 ### Scaling Compute in Kubernetes Engine
 
 ### Scaling Storage Resources
+
+Storage resources are virtualized in GCP, and some are fully managed services, so there are parallels between scaling
+storage and compute resources
+
+- Add persistent disk
 
 ### Network Design for Scalability
 

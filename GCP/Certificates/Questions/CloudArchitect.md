@@ -205,3 +205,80 @@ reduce the number of reads performed by the database?
 3. Use Cloud Memorystore to create a database cache that stores the results of database queries. Before a query is sent
    to the database, the cache is checked for the answer to the query.
 4. There is no other option—you must vertically scale.
+
+### 6.6
+
+Several new firewall rules have been added to a VPC. Several users are reporting unusual problems with applications that
+did not occur before the firewall rule changes. You’d like to debug the firewall rules while causing the least impact on
+the network and doing so as quickly as possible. Which of the following options is best?
+
+1. Set all new firewall priorities to 0 so that they all take precedence over other rules.
+2. Set all new firewall priorities to 65535 so that all other rules take precedence over these rules.
+3. Disable one rule at a time to see whether that eliminates the problems. If needed, disable combinations of rules
+   until the problems are eliminated.
+4. Remove all firewall rules and add them back one at a time until the problems occur and then remove the latest rule
+   added back.
+
+### 6.8
+
+To comply with regulations, you need to deploy a disaster recovery site that has the same design and configuration as
+your production environment. You want to implement the disaster recovery site in the cloud. Which topology would you
+use?
+
+1. Gated ingress topology
+2. Gated egress topology
+3. Handover topology
+4. Mirrored topology
+
+### 6.9
+
+Network engineers have determined that the best option for linking the on-premises network to GCP resources is by using
+an IPsec VPN. Which GCP service would you use in the cloud?
+
+1. Cloud IPsec
+2. Cloud VPN
+3. Cloud Interconnect IPsec
+4. Cloud VPN IKE
+
+### 6.10
+
+Network engineers have determined that a link between the on-premises network and GCP will require an 8 Gbps connection.
+Which option would you recommend?
+
+1. Cloud VPN
+2. Partner Interconnect
+3. Direct Interconnect
+4. Hybrid Interconnect
+
+### 6.13
+
+A startup is designing a social site dedicated to discussing global political, social, and environmental issues. The
+site will include news and opinion pieces in text and video. The startup expects that some stories will be exceedingly
+popular, and others won’t be, but they want to ensure that all users have a similar experience with regard to latency,
+so they plan to replicate content across regions. What load balancer should they use?
+
+1. HTTP(S)
+2. SSL Proxy
+3. Internal TCP/UDP
+4. TCP Proxy
+
+### 6.14
+
+As a developer, you foresee the need to have a load balancer that can distribute load using only private RFC 1918
+addresses. Which load balancer would you use?
+
+1. Internal TCP/UDP
+2. HTTP(S)
+3. SSL Proxy
+4. TCP Proxy
+
+### 6.15
+
+After a thorough review of the options, a team of developers and network engineers have determined that the SSL Proxy
+load balancer is the best option for their needs. What other GCP service must they have to use the SSL Proxy load
+balancer?
+
+1. Cloud Storage
+2. Cloud VPN
+3. Premium Tier networking
+4. TCP Proxy Load Balancing

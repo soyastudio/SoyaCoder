@@ -282,3 +282,27 @@ balancer?
 2. Cloud VPN
 3. Premium Tier networking
 4. TCP Proxy Load Balancing
+
+### 7.1
+
+A company is migrating an enterprise application to Google Cloud. When running onpremises, application administrators
+created user accounts that were used to run background jobs. There was no actual user associated with the account, but
+the administrators needed an identity with which to associate permissions. What kind of identity would you recommend
+using when running that application in GCP?
+
+1. Google-associated account
+2. Cloud Identity account
+3. Service account
+4. Batch account
+
+### 7.4
+
+An online application consists of a front-end service, a back-end business logic service, and a relational database. The
+front-end service is stateless and runs in an instance group that scales between two and five servers. The back-end
+business logic runs in a Kubernetes Engine cluster. The database is implemented using Cloud SQL PostgreSQL. How many
+trust domains should be used for this application?
+
+1. 1
+2. 2
+3. 3
+4. None. These services do not need trust domains.

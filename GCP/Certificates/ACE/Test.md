@@ -28,9 +28,9 @@
 
 ## Section 2: Planning and configuring a cloud solution (~17.5% of the exam)
 
-### 2.1 Planning and estimating Google Cloud product use using the Pricing Calculator
+### ~~2.1 Planning and estimating Google Cloud product usages using the Pricing Calculator~~
 
-### 2.2 Planning and configuring compute resources. Considerations include:
+### ~~2.2 Planning and configuring compute resources. Considerations include:~~
 
 - Selecting appropriate compute choices for a given workload (e.g., Compute Engine, Google Kubernetes Engine, Cloud Run,
   Cloud Functions)

@@ -2,7 +2,7 @@
 
 ### 1.1 Setting up cloud projects and accounts. Activities include:
 
-- Creating a resource hierarchy
+- ~~Creating a resource hierarchy~~
 
 - Applying organizational policies to the resource hierarchy
 
@@ -14,7 +14,7 @@
 
 - Provisioning and setting up products in Google Cloud’s operations suite
 
-### 1.2 Managing billing configuration. Activities include:
+### ~~1.2 Managing billing configuration. Activities include:~~
 
 - Creating one or more billing accounts
 
@@ -24,7 +24,7 @@
 
 - Setting up billing exports
 
-### 1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK (e.g., setting the default project).
+### ~~1.3 Installing and configuring the command line interface (CLI), specifically the Cloud SDK (e.g., setting the default project).~~
 
 ## Section 2: Planning and configuring a cloud solution (~17.5% of the exam)
 

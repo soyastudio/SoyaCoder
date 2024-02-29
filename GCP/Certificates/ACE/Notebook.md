@@ -1,4 +1,4 @@
-# Chapter 1.
+# Chapter 1. Overview of Google Cloud Platform
 
 ## Exam Essentials
 
@@ -28,7 +28,7 @@ of traffic between subnets?
 3. Firewall
 4. IP address table
 
-# Chapter 2.
+# Chapter 2. Google Cloud Computing Services
 
 ## Exam Essentials
 
@@ -54,7 +54,7 @@ Why would an API developer want to use the Apigee API platform?
 4. A and B
 5. All of the above
 
-# Chapter 3.
+# Chapter 3. Projects, Service Accounts, and Billing
 
 ## Exam Essentials
 
@@ -128,7 +128,7 @@ You explain the authentication mechanism used by service accounts. What authenti
 3. Encrypted keys
 4. Biometrics
 
-# Chapter 4.
+# Chapter 4. Introduction to Computing in Google Cloud
 
 ## Exam Essentials
 
@@ -191,7 +191,7 @@ except which one?
 3. Mobile application event processing
 4. Asynchronous workflows
 
-# Chapter 5.
+# Chapter 5. Computing with Compute Engine Virtual Machines
 
 ## Exam Essentials
 
@@ -214,7 +214,7 @@ Which one?
 3. Block size
 4. Source image for the disk
 
-# Chapter 6.
+# Chapter 6. Managing Virtual Machines
 
 ## Exam Essentials
 
@@ -271,7 +271,7 @@ What can be the basis for scaling up an instance group?
 3. Network latency, load balancing capacity, and CPU utilization
 4. Disk usage and operating system updates only
 
-# Chapter 7.
+# Chapter 7. Computing with Kubernetes
 
 ## Exam Essentials
 
@@ -367,7 +367,7 @@ effect. You suspect that a Kubernetes component is not functioning correctly. Wh
 3. Cloud SDK gcloud commands
 4. ReplicaSet
 
-# Chapter 8.
+# Chapter 8. Managing Kubernetes Clusters
 
 ## Exam Essentials
 
@@ -442,7 +442,7 @@ What kubectl command is used to add a service?
 3. initiate
 4. deploy
 
-# Chapter 9.
+# Chapter 9. Computing with App Engine
 
 ## Exam Essentials
 
@@ -497,7 +497,7 @@ What parameter to gcloud app services set-traffic is used to specify the method 
 3. ––traffic-split
 4. ––split-method
 
-# Chapter 10.
+# Chapter 10. Computing with Cloud Functions
 
 ## Exam Essentials
 
@@ -527,7 +527,7 @@ to take up to 30 minutes in some cases. Which GCP product is a good serverless o
 3. App Engine
 4. Cloud Storage
 
-# Chapter 11.
+# Chapter 11. Planning Storage in the Cloud
 
 ## Exam Essentials
 
@@ -589,7 +589,7 @@ the storage costs are higher than expected?
 3. Multiregional coldline is more expensive.
 4. Regional coldline is more expensive.
 
-# Chapter 12.
+# Chapter 12. Deploying Storage in Google Cloud Platform
 
 ## Exam Essentials
 
@@ -644,7 +644,7 @@ to use?
 3. BigQuery and Pricing Calculator
 4. Billing and Pricing Calculator
 
-# Chapter 13.
+# Chapter 13. Loading Data into Storage
 
 ## Exam Essentials
 
@@ -730,7 +730,7 @@ Which of the following commands will create a subscription on the topic ace-exam
 3. gcloud pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 4. gsutil pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 
-# Chapter 14.
+# Chapter 14. Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 
 ## Exam Essentials
 
@@ -825,7 +825,7 @@ When you create a cloud router, what kind of unique identifier do you need to as
 3. Dynamic load routing ID
 4. None of the above
 
-# Chapter 15.
+# Chapter 15. Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 
 ## Exam Essentials
 
@@ -910,7 +910,7 @@ network service should you choose?
 3. Premium
 4. Non-Internet
 
-# Chapter 16.
+# Chapter 16. Deploying Applications with Cloud Launcher and Deployment Manager
 
 ## Exam Essentials
 
@@ -969,7 +969,7 @@ You are deploying a Cloud Launcher application that includes a LAMP stack. What 
 3. MySQL and Apache only
 4. Apache, MySQL, Linux, and PHP
 
-# Chapter 17.
+# Chapter 17. Configuring Access and Security
 
 ## Exam Essentials
 
@@ -1045,7 +1045,7 @@ What gcloud command would you use to set scopes?
 3. gcloud compute service-accounts set-scopes
 4. gcloud compute service-accounts define-scopes
 
-# Chapter 18.
+# Chapter 18. Monitoring, Logging, and Cost Estimating
 
 ## Exam Essentials
 

@@ -1,4 +1,4 @@
-# Chapter 1.
+# Chapter 1. Overview of Google Cloud Platform
 
 ## Exam Essentials
 
@@ -28,7 +28,7 @@ of traffic between subnets?
 3. Firewall
 4. IP address table
 
-# Chapter 2.
+# Chapter 2. Google Cloud Computing Services
 
 ## Exam Essentials
 
@@ -54,7 +54,7 @@ Why would an API developer want to use the Apigee API platform?
 4. A and B
 5. All of the above
 
-# Chapter 3.
+# Chapter 3. Projects, Service Accounts, and Billing
 
 ## Exam Essentials
 
@@ -128,7 +128,7 @@ You explain the authentication mechanism used by service accounts. What authenti
 3. Encrypted keys
 4. Biometrics
 
-# Chapter 4.
+# Chapter 4. Introduction to Computing in Google Cloud
 
 ## Exam Essentials
 
@@ -191,7 +191,7 @@ except which one?
 3. Mobile application event processing
 4. Asynchronous workflows
 
-# Chapter 5.
+# Chapter 5. Computing with Compute Engine Virtual Machines
 
 ## Exam Essentials
 
@@ -214,7 +214,7 @@ Which one?
 3. Block size
 4. Source image for the disk
 
-# Chapter 6.
+# Chapter 6. Managing Virtual Machines
 
 ## Exam Essentials
 
@@ -231,14 +231,14 @@ Which one?
 - To work with snapshots, a user must be assigned the Compute Storage Admin role
 - Instance group:
 - VM Commands: (page 168)
-    - gcloud compute instances ...
-    - gcloud compute zones list
-    - gcloud compute disks snapshot DISK_NAME --snapshot-names=NAME
-    - gcloud compute disks create DISK_NAME --source-snapshot=SNAPSHOT_NAME
-    - gcloud compute snapshots list/describe
-    - gcloud compute images create/delete/export
-    - gcloud compute instance-templates create/delete/list ...
-    - gcloud compute instance-groups managed delete-instances/list-instances ...
+  - gcloud compute instances ...
+  - gcloud compute zones list
+  - gcloud compute disks snapshot DISK_NAME --snapshot-names=NAME
+  - gcloud compute disks create DISK_NAME --source-snapshot=SNAPSHOT_NAME
+  - gcloud compute snapshots list/describe
+  - gcloud compute images create/delete/export
+  - gcloud compute instance-templates create/delete/list ...
+  - gcloud compute instance-groups managed delete-instances/list-instances ...
 
 ## Review Questions
 
@@ -271,7 +271,7 @@ What can be the basis for scaling up an instance group?
 3. Network latency, load balancing capacity, and CPU utilization
 4. Disk usage and operating system updates only
 
-# Chapter 7.
+# Chapter 7. Computing with Kubernetes
 
 ## Exam Essentials
 
@@ -367,24 +367,24 @@ effect. You suspect that a Kubernetes component is not functioning correctly. Wh
 3. Cloud SDK gcloud commands
 4. ReplicaSet
 
-# Chapter 8.
+# Chapter 8. Managing Kubernetes Clusters
 
 ## Exam Essentials
 
 - Know how to view the status of a Kubernetes cluster:
-    - gcloud container clusters ...
+  - gcloud container clusters ...
 - Understand how to add, modify, and remove nodes
-    - gcloud container clusters resize
+  - gcloud container clusters resize
 - Understand how to add, modify, and remove pods
-    - kubectl get deployments
-    - kubectl scale deployment
+  - kubectl get deployments
+  - kubectl scale deployment
 - Understand how to add, modify, and remove services
-    - kubectl run
-    - kubectl expose deployment
-    - kubectl delete service
+  - kubectl run
+  - kubectl expose deployment
+  - kubectl delete service
 - Know how to view Container Registry images and their details.
-    - gcloud container images list
-    - gcloud container images describe
+  - gcloud container images list
+  - gcloud container images describe
 
 ## Highlights:
 
@@ -442,7 +442,7 @@ What kubectl command is used to add a service?
 3. initiate
 4. deploy
 
-# Chapter 9.
+# Chapter 9. Computing with App Engine
 
 ## Exam Essentials
 
@@ -497,21 +497,21 @@ What parameter to gcloud app services set-traffic is used to specify the method 
 3. ––traffic-split
 4. ––split-method
 
-# Chapter 10.
+# Chapter 10. Computing with Cloud Functions
 
 ## Exam Essentials
 
 - Know the relationship between events, triggers, and functions
 - Know when to use Cloud Functions versus App Engine applications.
 - Know the parameters for defining a cloud function on a Cloud Storage event.
-    - google.storage.object.finalize
-    - google.storage.object.delete
-    - google.storage.object.archive
-    - google.storage.object.metadataUpdate
+  - google.storage.object.finalize
+  - google.storage.object.delete
+  - google.storage.object.archive
+  - google.storage.object.metadataUpdate
 - Know the parameters for defining a Cloud Function on a Cloud Pub/Sub event.
 - Know the gcloud commands for working with Cloud Functions
-    - gcloud functions deploy
-    - gcloud functions delete
+  - gcloud functions deploy
+  - gcloud functions delete
 
 ## Review Questions
 
@@ -527,7 +527,7 @@ to take up to 30 minutes in some cases. Which GCP product is a good serverless o
 3. App Engine
 4. Cloud Storage
 
-# Chapter 11.
+# Chapter 11. Planning Storage in the Cloud
 
 ## Exam Essentials
 
@@ -589,7 +589,7 @@ the storage costs are higher than expected?
 3. Multiregional coldline is more expensive.
 4. Regional coldline is more expensive.
 
-# Chapter 12.
+# Chapter 12. Deploying Storage in Google Cloud Platform
 
 ## Exam Essentials
 
@@ -604,24 +604,24 @@ the storage costs are higher than expected?
 ### Highlight
 
 - gcloud sql commands:
-    - gcloud sql connect
-    - gcloud sql backups create ––async ––instance [INSTANCE_NAME]
-    - gcloud sql instances patch [INSTANCE_NAME] –backup-start-time [HH:MM]
+  - gcloud sql connect
+  - gcloud sql backups create ––async ––instance [INSTANCE_NAME]
+  - gcloud sql instances patch [INSTANCE_NAME] –backup-start-time [HH:MM]
 - gcloud datastore import/export
 - bq
 - gcloud pubsub
-    - gcloud pubsub topics create [TOPIC-NAME]
-    - gcloud pubsub subscriptions create [SUBSCRIPTION-NAME] ––topic [TOPIC-NAME]
+  - gcloud pubsub topics create [TOPIC-NAME]
+  - gcloud pubsub subscriptions create [SUBSCRIPTION-NAME] ––topic [TOPIC-NAME]
 - cbt
-    - cbt createtable ace-exam-bt-table
-    - cbt ls
-    - cbt createfamily ace-exam-bt-table colfam1
-    - cbt set ace-exam-bt-table row1 colfam1:col1=ace-exam-value
-    - cbt read ace-exam-bt-table
+  - cbt createtable ace-exam-bt-table
+  - cbt ls
+  - cbt createfamily ace-exam-bt-table colfam1
+  - cbt set ace-exam-bt-table row1 colfam1:col1=ace-exam-value
+  - cbt read ace-exam-bt-table
 - gcloud dataproc clusters
 - gsutil
-    - gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]
-    - gsutil mb/mv/cp
+  - gsutil rewrite -s [STORAGE_CLASS] gs://[PATH_TO_OBJECT]
+  - gsutil mb/mv/cp
 
 ## Review Questions
 
@@ -644,46 +644,46 @@ to use?
 3. BigQuery and Pricing Calculator
 4. Billing and Pricing Calculator
 
-# Chapter 13.
+# Chapter 13. Loading Data into Storage
 
 ## Exam Essentials
 
 - Know how to load data into and move data around Cloud Storage.
-    - gsutil acl ch -u
+  - gsutil acl ch -u
 - Understand how import and export work with Cloud SQL.
 - Know that you can export entities from a Cloud Datastore.
-    - There isn’t a Cloud Console option for exporting and importing from Datastore.
+  - There isn’t a Cloud Console option for exporting and importing from Datastore.
 - Understand how to export and import data from BigQuery.
 - Remember that Bigtable and Cloud Dataproc are different from other import and export functions.
-    - Bigtable does not have a console or command-line feature to import or export data. A Java program is run from the
-      command line to import or export data from Bigtable
-    - When you export from Dataproc, you are exporting the cluster configuration, not data in the cluster.
+  - Bigtable does not have a console or command-line feature to import or export data. A Java program is run from the
+    command line to import or export data from Bigtable
+  - When you export from Dataproc, you are exporting the cluster configuration, not data in the cluster.
 - Know that Pub/Sub is used to send messages between services.
 
 ## Highlight:
 
 - gcloud sql:
-    - gcloud sql instances describe [INSTANCE_NAME]
-    - gcloud sql export sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[FILE_NAME] --database=[DATABASE_NAME]
-    - gcloud sql import sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]
+  - gcloud sql instances describe [INSTANCE_NAME]
+  - gcloud sql export sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[FILE_NAME] --database=[DATABASE_NAME]
+  - gcloud sql import sql [INSTANCE_NAME] gs://[BUCKET_NAME]/[IMPORT_FILE_NAME] --database=[DATABASE_NAME]
 - Cloud Spanner uses the Dataflow service for importing and exporting.
 - gcloud datastore:
-    - gcloud datastore export --namespaces="(default)" gs://${BUCKET}
-    - gcloud datastore import gs://${BUCKET}/[PATH]/[FILE].overall_export_metadata
+  - gcloud datastore export --namespaces="(default)" gs://${BUCKET}
+  - gcloud datastore import gs://${BUCKET}/[PATH]/[FILE].overall_export_metadata
 - bq:
-    - bq extract --destination_format [FORMAT] --compression [COMPRESSION_TYPE]
-      --field_delimiter [DELIMITER] --print_header [BOOLEAN] [PROJECT_ID]:[DATASET].
-      [TABLE] gs://[BUCKET]/[FILENAME]
-    - bq load --autodetect --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE]
+  - bq extract --destination_format [FORMAT] --compression [COMPRESSION_TYPE]
+    --field_delimiter [DELIMITER] --print_header [BOOLEAN] [PROJECT_ID]:[DATASET].
+    [TABLE] gs://[BUCKET]/[FILENAME]
+  - bq load --autodetect --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE]
 - Cloud Bigtable does not have an Export and Import option in the Cloud Console or in gcloud
 - Cloud Dataproc does have Import and Export commands to save and restore cluster configuration data.
-    - gcloud beta dataproc clusters export [CLUSTER_NAME] --destination=[PATH_TO_EXPORT_FILE]
-    - gcloud beta dataproc clusters import [SOURCE_FILE]
+  - gcloud beta dataproc clusters export [CLUSTER_NAME] --destination=[PATH_TO_EXPORT_FILE]
+  - gcloud beta dataproc clusters import [SOURCE_FILE]
 - gcloud pubsub:
-    - gcloud pubsub topics create [TOPIC_NAME]
-    - gcloud pubsub subscriptions create --topic [TOPIC_NAME] [SUBSCRIPTION_NAME]
-    - cloud pubsub topics publish [TOPIC_NAME] --message [MESSAGE]
-    - gcloud pubsub subscriptions pull --auto-ack [SUBSCRIPTION_NAME]
+  - gcloud pubsub topics create [TOPIC_NAME]
+  - gcloud pubsub subscriptions create --topic [TOPIC_NAME] [SUBSCRIPTION_NAME]
+  - cloud pubsub topics publish [TOPIC_NAME] --message [MESSAGE]
+  - gcloud pubsub subscriptions pull --auto-ack [SUBSCRIPTION_NAME]
 
 ## Review Questions
 
@@ -730,7 +730,7 @@ Which of the following commands will create a subscription on the topic ace-exam
 3. gcloud pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 4. gsutil pubsub subscriptions create ––topic=ace-exam-topic1 ace-exam-sub1
 
-# Chapter 14.
+# Chapter 14. Networking in the Cloud: Virtual Private Clouds and Virtual Private Networks
 
 ## Exam Essentials
 
@@ -749,32 +749,32 @@ Which of the following commands will create a subscription on the topic ace-exam
 ## Highlight:
 
 - VPC
-    - VPCs are software versions of physical networks that link resources in a project.
-    - GCP automatically creates a VPC when you create a project
-    - You can create additional VPCs and modify the VPCs created by GCP
-    - VPCs are global resources, so they are not tied to a specific region or zone.
-    - VPCs contain subnetworks, call subnets, which are regional resources.
-    - Subnets provide private internal addresses. Resources use these addresses to communicate with each other and with
-      Google APIs and services.
-    - Shared VPC within organization (can also on folder level)
-    - VPC peering for interproject connectivity (if the VPCs are not shared)
-    - CIDR: classless inter-domain routing
-    - Dynamic routing (Google Cloud Routing): regional or global
-    - gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto
-    - Command for create and manage shared VPC: (page 381)
+  - VPCs are software versions of physical networks that link resources in a project.
+  - GCP automatically creates a VPC when you create a project
+  - You can create additional VPCs and modify the VPCs created by GCP
+  - VPCs are global resources, so they are not tied to a specific region or zone.
+  - VPCs contain subnetworks, call subnets, which are regional resources.
+  - Subnets provide private internal addresses. Resources use these addresses to communicate with each other and with
+    Google APIs and services.
+  - Shared VPC within organization (can also on folder level)
+  - VPC peering for interproject connectivity (if the VPCs are not shared)
+  - CIDR: classless inter-domain routing
+  - Dynamic routing (Google Cloud Routing): regional or global
+  - gcloud compute networks create ace-exam-vpc1 --subnet-mode=auto
+  - Command for create and manage shared VPC: (page 381)
 - Firewall Rules
-    - Firewall rules are defined at the network (subnet) level and used to control the flow of network traffic to VMs.
-    - It is important to note that the firewall is stateful
-    - All VPCs start with two implied rules
-    - gcloud compute firewall-rules
+  - Firewall rules are defined at the network (subnet) level and used to control the flow of network traffic to VMs.
+  - It is important to note that the firewall is stateful
+  - All VPCs start with two implied rules
+  - gcloud compute firewall-rules
 - VPN:
-    - Hybrid Connectivity
-    - Tunnel
-    - Routing options: dynamic, route-based and policy-based
-    - Commands:
-        - gcloud compute target-vpn-gateways
-        - gcloud compute forwarding-rule
-        - gcloud compute vpn-tunnels
+  - Hybrid Connectivity
+  - Tunnel
+  - Routing options: dynamic, route-based and policy-based
+  - Commands:
+    - gcloud compute target-vpn-gateways
+    - gcloud compute forwarding-rule
+    - gcloud compute vpn-tunnels
 
 ## Review Questions
 
@@ -825,14 +825,14 @@ When you create a cloud router, what kind of unique identifier do you need to as
 3. Dynamic load routing ID
 4. None of the above
 
-# Chapter 15.
+# Chapter 15. Networking in the Cloud: DNS, Load Balancing, and IP Addressing
 
 ## Exam Essentials
 
 - Cloud DNS is used to map domain names to IP addresses.
-    - DNS Zone: public and private
+  - DNS Zone: public and private
 - Know that DNS entries, like example.com, can have multiple records associated with them.
-    - CNAME
+  - CNAME
 - Know how load balancers are distinguished
 - Know the five types of load balancers and when they should be used.
 - Understand that configuring a load balancer can require configuring both the frontend and backend.
@@ -910,7 +910,7 @@ network service should you choose?
 3. Premium
 4. Non-Internet
 
-# Chapter 16.
+# Chapter 16. Deploying Applications with Cloud Launcher and Deployment Manager
 
 ## Exam Essentials
 
@@ -969,7 +969,7 @@ You are deploying a Cloud Launcher application that includes a LAMP stack. What 
 3. MySQL and Apache only
 4. Apache, MySQL, Linux, and PHP
 
-# Chapter 17.
+# Chapter 17. Configuring Access and Security
 
 ## Exam Essentials
 
@@ -1045,7 +1045,7 @@ What gcloud command would you use to set scopes?
 3. gcloud compute service-accounts set-scopes
 4. gcloud compute service-accounts define-scopes
 
-# Chapter 18.
+# Chapter 18. Monitoring, Logging, and Cost Estimating
 
 ## Exam Essentials
 
@@ -1065,8 +1065,8 @@ What gcloud command would you use to set scopes?
 - Agents send data from monitored resources to Stackdriver in streams
 - This process of grouping data into regular-sized buckets of time is called aligning.
 - There are two ways to create custom metrics: using OpenCensus or Stackdriver’s Monitoring API
-    - OpenCensus provides a higher-level, monitoring-focused API,
-    - The Stackdriver Monitoring API is lower-level.
+  - OpenCensus provides a higher-level, monitoring-focused API,
+  - The Stackdriver Monitoring API is lower-level.
 - A metric kind, such as a gauge, delta, or cumulative metric
 - The process of copying data from Logging to a storage system is called exporting, and the location to which you write
   the log data is called a sink
